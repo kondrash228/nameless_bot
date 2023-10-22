@@ -2,3 +2,6 @@ venv
 fintess-ai.sqlite
 flow_chart.jpg
 logs.log
+.DS_Store
+.idea
+__pycache__
