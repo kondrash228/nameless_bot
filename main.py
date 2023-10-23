@@ -13,6 +13,7 @@ from termcolor import colored
 
 import config
 from database import BotDatabase
+from keyboards import markup_keyboard_accept, markup_keyboard_accept_call
 
 openai.api_key = config.OPENAI_TOKEN
 bot = telebot.TeleBot(token=config.TG_BOT_TOKEN)
@@ -102,13 +103,8 @@ def get_info(message: types.Message):
         logging.info(f'получили ответ гпт {form_completion}')
         bot.send_message(message.chat.id, form_completion.choices[0].message.content)
 
-        markup_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=False)
-        yes_btn = types.KeyboardButton('да')
-        no_btn = types.KeyboardButton('нет')
-        markup_keyboard.add(yes_btn, no_btn)
-
         check_message = bot.send_message(message.chat.id, "проверь форму и напиши, если хочешь что то поменять",
-                                         reply_markup=markup_keyboard)
+                                         reply_markup=markup_keyboard_accept)
         bot.register_next_step_handler(check_message, check_form)
 
     elif message.content_type == 'text':
@@ -135,13 +131,8 @@ def get_info(message: types.Message):
         logging.info(f'получили ответ гпт {form_completion}')
         bot.send_message(message.chat.id, form_completion.choices[0].message.content)
 
-        markup_keyboard = types.ReplyKeyboardMarkup(resize_keyboard=False)
-        yes_btn = types.KeyboardButton('да')
-        no_btn = types.KeyboardButton('нет')
-        markup_keyboard.add(yes_btn, no_btn)
-
         check_message = bot.send_message(message.chat.id, "проверь форму и напиши, если хочешь что то поменять",
-                                         reply_markup=markup_keyboard)
+                                         reply_markup=markup_keyboard_accept)
         bot.register_next_step_handler(check_message, check_form)
 
 
@@ -158,24 +149,32 @@ def check_form(message: types.Message):
 def edit_form(message: types.Message):
     logging.info('редактируем анкету пользователя')
     ok = False
+    to_change = message.text
+    messages_f.append({"role": "system", "content": "измени предыдущую форму в соответсвии с текстом"})
+    messages_f.append({"role": "user", "content": to_change})
 
-    if ok:
-        logging.info('ура')
-    else:
-        to_change = message.text
-        messages_f.append({"role": "system", "content": "измени предыдущую форму в соответсвии с текстом"})
-        messages_f.append({"role": "user", "content": to_change})
+    edited_form = openai.ChatCompletion.create(  # req to fill the form
+        model=config.MODEL_NAME,
+        messages=messages_f
+    )
 
-        edited_form = openai.ChatCompletion.create(  # req to fill the form
-            model=config.MODEL_NAME,
-            messages=messages_f
-        )
+    bot.send_message(message.chat.id, edited_form.choices[0].message.content)
+    bot.send_message(message.chat.id, "Подходит? да/нет", reply_markup=markup_keyboard_accept_call)
 
-        bot.send_message(message.chat.id, edited_form.choices[0].message.content)
+
+@bot.callback_query_handler(func=lambda call: True)
+def answer(call):
+    if call.data == 'yes':
+        # register next step -> 2 prompt
+        pass
+    elif call.data == 'no':
+        logging.info('12312312312')
+        edit = bot.send_message(call.message.chat.id, "Напиши что тебе не понравилось")
+        bot.register_next_step_handler(edit, edit_form)
 
 
 def fill_form(raw_data: str) -> str:
-    """
+    """3
     here we use gpt
 
     :param raw_data:
