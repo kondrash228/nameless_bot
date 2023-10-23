@@ -12,16 +12,16 @@ program: char
 
 class BotDatabase:
     def __init__(self, database_name: str):
-        self.conn = sqlite3.connect(database_name)
+        self.conn = sqlite3.connect(database_name, check_same_thread=False)
         self.cur = self.conn.cursor()
 
     def check_user(self, user_id: int) -> bool:
-        if user_id:
-            return True
-        return False
+        result = self.cur.execute("SELECT `id` FROM `users` WHERE `user_id` = ?", (user_id,))
+        return bool(len(result.fetchall()))
 
     def add_user(self, user_id: int, name: str):
-        pass
+        self.cur.execute("INSERT INTO `users` (`user_id`, `name`) VALUES (?, ?)", (user_id, name,))
+        return self.conn.commit()
 
     def insert(self, program: str):
         pass

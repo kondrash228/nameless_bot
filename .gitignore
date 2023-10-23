@@ -5,3 +5,5 @@ logs.log
 .DS_Store
 .idea
 __pycache__
+req.py
+test_filename.mp3
