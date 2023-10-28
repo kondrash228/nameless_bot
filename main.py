@@ -31,17 +31,13 @@ bot.set_my_commands([
     telebot.types.BotCommand('/about', "О боте"),
 ])
 
-messages_f = []
+context_messages = []
+context_messages_program = []
 
+context_messages.append({"role": "system", "content": "Твоя задача сделать анкету по данным предоставлеными пользователем. Формат анкеты следующий:имя,пол,возраст,уровень физической подготовки (от 1 до 10),длительность занятия,физические ограничения,наличие спортивного инвентаря,пожелания по упражнениям. Не задавай вопрос про пол (гендер) пользователя,определи пол по имени. Общайся с пользователем на «ты». Задавай уточняющие вопросы до тех пор пока анкету не заполнишь полностью. Задавай вопросы строго по анкете. Задавай по одному вопросу за раз. Пиши более кратко. По завершению анкеты, спроси, все ли верно с ней и спроси нужно ли что-то исправить."})
 
 @bot.message_handler(commands=['start'])
 def main(message: types.Message):
-    """
-    greeting and asking first questions
-
-    :param message:
-    :return:
-    """
 
     if not BotDatabase.check_user(user_id=message.from_user.id):
         logging.info(f'добваляем пользователя с user_id: {message.from_user.id} в базу данных')
@@ -51,9 +47,7 @@ def main(message: types.Message):
                                      f"Привет {message.from_user.username}, я твой личный бот фитнесс-тренер\nДавай составим для тебя план индивидуальных тренировок. "
                                      "Для этого ты можешь рассказать о себе и своем спортивном опыте в голосовом сообщении "
                                      "или написать текстом :)")
-        """
-        просим пользователя надиктовать или написать о себе и далее делаем запрос к openai 
-        """
+
         bot.register_next_step_handler(start_msg, get_info)
     else:
         logging.info(f'пользователь с user_id: {message.from_user.id} уже существует')
@@ -61,19 +55,7 @@ def main(message: types.Message):
 
 
 def get_info(message: types.Message):
-    """
-    check if user send to us a voice message -> speech to text | convert to text done
-    chek if user send to us a text message -> starting completing the form done
-    :param message:
-    :return:
-    """
-
     if message.content_type == 'voice':
-        """
-        => convert to text and call the function which will fill the form
-        => save program to database
-        => register next step
-        """
 
         logging.info('пользователь отправил голосовое сообщение, вызываем whisper и конвертируем в текст')
         bot.send_message(message.chat.id, "Супер, начинаем заполнять для тебя анкету!")
@@ -91,101 +73,96 @@ def get_info(message: types.Message):
 
         logging.info(f'Получили текст из гс {transcripted_text}, отправляем запрос в гпт')
 
-        messages_f.append({"role": "system",
-                           "content": "составь анекту по введеным данным и запроси подробную информацию если тебе ее не хватает для составления анекты.анекта имеет вид: имя, пол, возраст, длительность заняти, дни занятий, физические ограничения, пожелания по упражнениям"})
-        messages_f.append({"role": "user", "content": transcripted_text})
+        context_messages.append({"role": "user", "content": transcripted_text})
 
-        form_completion = openai.ChatCompletion.create(  # req to fill the form
-            model=config.MODEL_NAME,
-            messages=messages_f
+        form_completion = openai.ChatCompletion.create(
+            model=config.FT_MODEL_NAME,
+            messages=context_messages
         )
 
         logging.info(f'получили ответ гпт {form_completion}')
-        bot.send_message(message.chat.id, form_completion.choices[0].message.content)
+        context_messages.append({"role": "assistant", "content": form_completion.choices[0].message.content})
 
-        check_message = bot.send_message(message.chat.id, "проверь форму и напиши, если хочешь что то поменять",
-                                         reply_markup=markup_keyboard_accept)
+        check_message = bot.send_message(message.chat.id, form_completion.choices[0].message.content)
         bot.register_next_step_handler(check_message, check_form)
 
     elif message.content_type == 'text':
-        """
-        => call the function which will fill the form
-        => check if the form filled
-        => save program to database
-        => register next step
-        """
 
         logging.info('пользователь отправил текстовое сообщение')
         text_from_user = message.text
         bot.send_message(message.chat.id, "Супер, начинаем заполнять для тебя анкету!")
 
-        messages_f.append({"role": "system",
-                           "content": "составь анекту по введеным данным и запроси подробную информацию если тебе ее не хватает для составления анекты.анекта имеет вид: имя, пол, возраст, длительность заняти, дни занятий, физические ограничения, пожелания по упражнениям"})
-        messages_f.append({"role": "user", "content": text_from_user})
+        context_messages.append({"role": "user", "content": str(text_from_user)})
 
-        form_completion = openai.ChatCompletion.create(  # req to fill the form
-            model=config.MODEL_NAME,
-            messages=messages_f
+        form_completion = openai.ChatCompletion.create(
+            model=config.FT_MODEL_NAME,
+            messages=context_messages
         )
 
         logging.info(f'получили ответ гпт {form_completion}')
-        bot.send_message(message.chat.id, form_completion.choices[0].message.content)
 
-        check_message = bot.send_message(message.chat.id, "проверь форму и напиши, если хочешь что то поменять",
-                                         reply_markup=markup_keyboard_accept)
+        context_messages.append({"role": "assistant", "content": form_completion.choices[0].message.content})
+
+        check_message = bot.send_message(message.chat.id, form_completion.choices[0].message.content)
+
         bot.register_next_step_handler(check_message, check_form)
 
 
 def check_form(message: types.Message):
     logging.info(f'from check_form: {message.text}')
-    if message.text == 'да':
-        # todo prompt 2
-        pass
-    else:
-        edit = bot.send_message(message.chat.id, "Напиши что тебе не понравилось")
-        bot.register_next_step_handler(edit, edit_form)
+    user_answer = message.text
 
+    context_messages.append({"role": "user", "content": str(user_answer)})
+    logging.info(f"context: {context_messages}")
 
-def edit_form(message: types.Message):
-    logging.info('редактируем анкету пользователя')
-    ok = False
-    to_change = message.text
-    messages_f.append({"role": "system", "content": "измени предыдущую форму в соответсвии с текстом"})
-    messages_f.append({"role": "user", "content": to_change})
+    get_form = openai.ChatCompletion.create(
 
-    edited_form = openai.ChatCompletion.create(  # req to fill the form
-        model=config.MODEL_NAME,
-        messages=messages_f
+        model=config.FT_MODEL_NAME,
+        messages=context_messages
     )
 
-    bot.send_message(message.chat.id, edited_form.choices[0].message.content)
-    bot.send_message(message.chat.id, "Подходит? да/нет", reply_markup=markup_keyboard_accept_call)
+    key_word = 'анкета'
+    logging.info(get_form)
+
+    if key_word in str(get_form.choices[0].message.content).lower(): # посмотреть ответ
+        bot.send_message(message.chat.id, get_form.choices[0].message.content)
+        bot.send_message(message.chat.id, "Все ли верно?", reply_markup=markup_keyboard_accept)
+        logging.info(f'{message.text}')
+    else:
+        mess = bot.send_message(message.chat.id, get_form.choices[0].message.content)
+        bot.register_next_step_handler(mess, check_form)
 
 
-@bot.callback_query_handler(func=lambda call: True)
-def answer(call):
-    if call.data == 'yes':
-        # register next step -> 2 prompt
+def create_program(message: types.Message):
+    logging.info('создаем программу на основе анкеты пользователя!')
+    pre_program = openai.ChatCompletion.create(
+        model=config.FT_MODEL_NAME,
+        messages=context_messages_program
+    )
+
+    check_msg = bot.send_message(message.chat.id, pre_program.choices[0].message.content)
+    bot.register_next_step_handler(check_msg, check_program)
+
+
+def check_program(message: types.Message):
+    user_answer = message.text.lower()
+
+    if user_answer == 'да':
+        # достать голую программу и сохранить в бд
         pass
-    elif call.data == 'no':
-        logging.info('12312312312')
-        edit = bot.send_message(call.message.chat.id, "Напиши что тебе не понравилось")
-        bot.register_next_step_handler(edit, edit_form)
+    else:
+        context_messages_program.append({"role": "user", "content": user_answer})
 
-
-def fill_form(raw_data: str) -> str:
-    """3
-    here we use gpt
-
-    :param raw_data:
-    :return:
-    """
-    logging.info('вызываем гпт')
-    pass
+        re_creating_program = openai.ChatCompletion.create(
+            model=config.FT_MODEL_NAME,
+            messages=context_messages_program
+        )
+        m2 = bot.send_message(message.chat.id, re_creating_program.choices[0].message.content)
+        bot.register_next_step_handler(m2, check_program)
 
 
 @bot.message_handler(commands=['start_sport'])
-def start_sport():
+def start_sport(message: types.Message):
     pass
 
 
@@ -205,8 +182,8 @@ def edit_prog():
 
 
 @bot.message_handler(commands=['about'])
-def about():
-    pass
+def about(message: types.Message):
+    bot.send_message(message.chat.id, "Привет, я бот, который составляет индивидуальные тренировки")
 
 
 bot.infinity_polling()
