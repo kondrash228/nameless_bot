@@ -1,10 +1,10 @@
-d = {}
+import tiktoken
 
-k = 123
 
-if not k in d.keys():
-    d[k] = []
+def num_tokens_from_string(string: str, encoding_name: str) -> int:
+    encoding = tiktoken.get_encoding(encoding_name)
+    num_tokens = len(encoding.encode(string))
+    return num_tokens
 
-d[k].append({1:"123"})
 
-print(d)
+print(num_tokens_from_string("привет, я егор", "cl100k_base"))

@@ -22,8 +22,12 @@ pydub==0.25.1
 pyTelegramBotAPI==4.14.0
 python-telegram-bot==13.15
 pytz==2023.3.post1
+regex==2023.10.3
 requests==2.31.0
 six==1.16.0
+tenacity==8.2.3
+termcolor==2.3.0
+tiktoken==0.5.1
 tornado==6.1
 tqdm==4.66.1
 typing_extensions==4.7.1
