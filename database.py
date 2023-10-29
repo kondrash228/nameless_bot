@@ -27,8 +27,11 @@ class BotDatabase:
         res = self.cur.execute("SELECT `id` FROM `users` WHERE `user_id` = ?", (user_id,))
         return res.fetchone()[0]
 
-    def insert(self, user_id: int, program: str):
-        self.cur.execute("UPDATE users SET `program` = ? WHERE user_id = ?", (program, user_id))
+    def insert(self, user_id: int, program: list):
+        i = 1
+        for idx, ex in enumerate(program):
+            self.cur.execute(f"UPDATE users SET `ex{i}` = ? WHERE user_id = ?", (ex, user_id))
+            i += 1
         return self.conn.commit()
 
     def update(self, user_id: int, new_program: str):
