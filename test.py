@@ -34,17 +34,20 @@ program = """
 
 # for idx, elem in enumerate(program.split("|")):
 #     print(elem)
-a = program.replace("\n", "")
-a = a.split("*")
-s = ''
-d = []
+# a = program.replace("\n", "")
+# a = a.split("*")
+# s = ''
+# d = []
+#
+# for elem in a:
+#     if elem and elem[0].isdigit():
+#         d.append(elem.split("*")[0])
+#
+# from database import BotDatabase
+#
+# BotDatabase = BotDatabase('fintess-ai.sqlite')
+#
+# BotDatabase.insert(802693897, d)
 
-for elem in a:
-    if elem and elem[0].isdigit():
-        d.append(elem.split("*")[0])
-
-from database import BotDatabase
-
-BotDatabase = BotDatabase('fintess-ai.sqlite')
-
-BotDatabase.insert(802693897, d)
+feedback = ['123', '456', '789']
+print('\n'.join(feedback))

@@ -1,14 +1,5 @@
 import sqlite3
 
-"""
-database structure:
-
-user_id: int
-name: char
-program: char
-
-"""
-
 
 class BotDatabase:
     def __init__(self, database_name: str):
@@ -36,6 +27,20 @@ class BotDatabase:
 
     def update(self, user_id: int, new_program: str):
         pass
+
+    def get_exercises(self, user_id: int):
+        exs = []
+        result = self.cur.execute(f"SELECT * FROM `users` WHERE `user_id` = ?", (user_id,))
+
+        for obj in result.fetchall():
+            for j in range(3, len(obj) - 1):
+                if not obj[j] is None:
+                    exs.append(obj[j])
+        return exs
+
+    def insert_feedback(self, user_id: int, feedback: str):
+        self.cur.execute("UPDATE users SET feedback = ? WHERE user_id = ?", (feedback, user_id,))
+        return self.conn.commit()
 
     def close_conn(self):
         self.conn.close()
