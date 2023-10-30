@@ -66,16 +66,15 @@ def get_info(message: types.Message):
         df = bot.download_file(file_info.file_path)
 
         logging.info('получили голосовое сообщение, скармливаем его whisper')
-        with open(f'{message.from_user.id}.mp3', 'wb') as file:
+        with open(f'voice_messages/{message.from_user.id}.mp3', 'wb') as file:
             file.write(df)
 
-        audio_file = open(f'{message.from_user.id}.mp3', 'rb')
+        audio_file = open(f'voice_messages/{message.from_user.id}.mp3', 'rb')
         transcript = openai.Audio.transcribe("whisper-1", audio_file)
         transcripted_text = str(transcript['text'])
 
         logging.info(f'Получили текст из гс {transcripted_text}, отправляем запрос в гпт')
 
-        # context_messages.append({"role": "user", "content": transcripted_text})
         context_messages[message.from_user.id].append({"role": "user", "content": transcripted_text})
 
         form_completion = openai.ChatCompletion.create(
@@ -138,7 +137,7 @@ def check_form(message: types.Message):
     key_word = 'анкета'
     logging.info(get_form)
 
-    if key_word in str(get_form.choices[0].message.content).lower():  # посмотреть ответ
+    if key_word in str(get_form.choices[0].message.content).lower():
         s2 = bot.send_message(message.chat.id, get_form.choices[0].message.content, reply_markup=markup_keyboard_accept)
         bot.register_next_step_handler(s2, final_check_form)
     else:
@@ -150,7 +149,7 @@ def final_check_form(message: types.Message):
     ok = message.text
 
     if ok == 'Да':
-        bot.send_message(message.chat.id,"Отлично! Составляю для тебя программу, это займен не больше минуты.", reply_markup=markup_keyboard_accept)
+        bot.send_message(message.chat.id,"Отлично! Составляю для тебя программу, это займет не больше минуты.", reply_markup=markup_keyboard_accept)
         context_messages[message.from_user.id].append({"role": "assistant", "content": "Выдай полученную форму, без лишнего текста, ничего не пиши кроме анкеты"})
 
         get_ready_form = openai.ChatCompletion.create(
