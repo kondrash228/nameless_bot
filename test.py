@@ -49,5 +49,6 @@ program = """
 #
 # BotDatabase.insert(802693897, d)
 
-feedback = ['123', '456', '789']
-print('\n'.join(feedback))
+from loguru import logger
+
+logger.info("hello this is testing logs via loguru")

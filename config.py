@@ -1,8 +1,9 @@
 TG_BOT_TOKEN = "5575707129:AAHAdYUkY3DQnfwTTY27K4tj8gbrw18CkOU"
 OPENAI_TOKEN = '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'
 DATABASE_NAME = 'users'
-MODEL_NAME = 'gpt-3.5-turbo'
-FT_MODEL_NAME = "gpt-4"  #ft:gpt-3.5-turbo-0613:personal:eg-prompt-1:8EZGNIb2
+GPT_3_5 = 'gpt-3.5-turbo'
+GPT_4 = "gpt-4"  #ft:gpt-3.5-turbo-0613:personal:eg-prompt-1:8EZGNIb2
+GPT_4_TURBO = 'gpt-4-1106-preview'
 
 quotes = ["«Чемпионами становятся не в тренажёрных залах. Чемпиона рождает то, что у человека внутри — желания, мечты, цели», — Мухаммед Али",
           "«Я плакал, потому что у меня не было футбольных кед, но однажды я встретил человека, у которого не было ног», — Зинедин Зидан,"

@@ -1,0 +1,188 @@
+2023-11-07 23:54:41,568 - INFO - создаем команды боту
+2023-11-07 23:54:45,323 - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2023-11-07 23:54:45,323 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1073, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 108, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 649, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 623, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates, long_polling_timeout)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 321, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2023-11-07 23:54:49,260 - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2023-11-07 23:54:49,260 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1073, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 108, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 649, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 623, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates, long_polling_timeout)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 321, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2023-11-07 23:54:53,971 - ERROR - Threaded polling exception: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2023-11-07 23:54:53,971 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1073, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 108, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 649, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 623, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates, long_polling_timeout)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 321, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 162, in _make_request
+    json_result = _check_result(method_name, result)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 189, in _check_result
+    raise ApiTelegramException(method_name, result, result_json)
+telebot.apihelper.ApiTelegramException: A request to the Telegram API was unsuccessful. Error code: 409. Description: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+
+2023-11-07 23:54:56,229 - ERROR - Infinity polling: polling exited
+2023-11-07 23:54:56,229 - ERROR - Break infinity polling
+2023-11-07 23:55:22,506 - INFO - создаем команды боту
+2023-11-07 23:55:27,705 - INFO - добваляем пользователя с user_id: 802693897 в базу данных
+2023-11-07 23:55:50,835 - INFO - пользователь отправил текстовое сообщение
+2023-11-07 23:55:59,717 - INFO - Получили ответ gpt Привет, Егор! Для заполнения анкеты мне нужно задать тебе несколько вопросов. Скажи, какой уровень физической подготовки у тебя на данный момент? И сколько времени ты обычно тратишь на занятия?
+2023-11-07 23:55:59,718 - INFO - считаем токены для пользователя: 802693897, итого prompt_1 = 500
+2023-11-07 23:56:36,562 - INFO - from check_form: ну уровень я дуамаю средний, я готов тратить по 40 минут по понедельникам и пятницам
+2023-11-07 23:56:36,564 - INFO - context: [{'role': 'system', 'content': "Твоя задача сделать анкету по данным предоставлеными пользователем. Формат анкеты следующий:имя,пол,возраст,уровень физической подготовки (от 1 до 10),длительность занятия, физические ограничения,наличие спортивного инвентаря,пожелания по упражнениям. Не задавай вопрос про пол (гендер) пользователя,определи пол по имени. Общайся с пользователем на «ты». Задавай уточняющие вопросы до тех пор пока анкету не заполнишь полностью. Задавай вопросы строго по анкете. Обязательно спроси у пользователя возраст. Задавай по два вопроса за раз. Пиши кратко, не повторяй слова пользователя, не давай лишних комментариев. Начни сообщение с анкетой со слов 'Твоя анкета' .По завершению анкеты, спроси, все ли верно с ней и спроси нужно ли что-то исправить. Не выдавай анкету до тех пор пока она полностью не будет заполнена."}, {'role': 'user', 'content': 'привет, меня зовут егор, мне 17 лет, я хочу делать подтягивания и у меня есть дома турник'}, {'role': 'assistant', 'content': 'Привет, Егор! Для заполнения анкеты мне нужно задать тебе несколько вопросов. Скажи, какой уровень физической подготовки у тебя на данный момент? И сколько времени ты обычно тратишь на занятия?'}, {'role': 'user', 'content': 'ну уровень я дуамаю средний, я готов тратить по 40 минут по понедельникам и пятницам'}]
+2023-11-07 23:56:44,568 - INFO - текущие токены пользователя: 802693897 prompt_1=1134
+2023-11-07 23:56:44,568 - INFO - {
+  "id": "chatcmpl-8INPg8oIng93Kzjjzmv6so4unYIlB",
+  "object": "chat.completion",
+  "created": 1699390596,
+  "model": "gpt-4-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "\u0425\u043e\u0440\u043e\u0448\u043e, \u0415\u0433\u043e\u0440. \u0415\u0441\u0442\u044c \u043b\u0438 \u0443 \u0442\u0435\u0431\u044f \u043a\u0430\u043a\u0438\u0435-\u043b\u0438\u0431\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u0438\u044f, \u043e \u043a\u043e\u0442\u043e\u0440\u044b\u0445 \u043c\u043d\u0435 \u0441\u043b\u0435\u0434\u0443\u0435\u0442 \u0437\u043d\u0430\u0442\u044c? \u0418 \u0435\u0441\u0442\u044c \u043b\u0438 \u0443 \u0442\u0435\u0431\u044f \u0435\u0449\u0435 \u043a\u0430\u043a\u043e\u0435-\u043d\u0438\u0431\u0443\u0434\u044c \u0441\u043f\u043e\u0440\u0442\u0438\u0432\u043d\u043e\u0435 \u043e\u0431\u043e\u0440\u0443\u0434\u043e\u0432\u0430\u043d\u0438\u0435 \u0434\u043e\u043c\u0430, \u043a\u0440\u043e\u043c\u0435 \u0442\u0443\u0440\u043d\u0438\u043a\u0430?"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 549,
+    "completion_tokens": 85,
+    "total_tokens": 634
+  }
+}
+2023-11-07 23:59:52,949 - INFO - from check_form: у меня болит левое колено, нет
+2023-11-07 23:59:52,950 - INFO - context: [{'role': 'system', 'content': "Твоя задача сделать анкету по данным предоставлеными пользователем. Формат анкеты следующий:имя,пол,возраст,уровень физической подготовки (от 1 до 10),длительность занятия, физические ограничения,наличие спортивного инвентаря,пожелания по упражнениям. Не задавай вопрос про пол (гендер) пользователя,определи пол по имени. Общайся с пользователем на «ты». Задавай уточняющие вопросы до тех пор пока анкету не заполнишь полностью. Задавай вопросы строго по анкете. Обязательно спроси у пользователя возраст. Задавай по два вопроса за раз. Пиши кратко, не повторяй слова пользователя, не давай лишних комментариев. Начни сообщение с анкетой со слов 'Твоя анкета' .По завершению анкеты, спроси, все ли верно с ней и спроси нужно ли что-то исправить. Не выдавай анкету до тех пор пока она полностью не будет заполнена."}, {'role': 'user', 'content': 'привет, меня зовут егор, мне 17 лет, я хочу делать подтягивания и у меня есть дома турник'}, {'role': 'assistant', 'content': 'Привет, Егор! Для заполнения анкеты мне нужно задать тебе несколько вопросов. Скажи, какой уровень физической подготовки у тебя на данный момент? И сколько времени ты обычно тратишь на занятия?'}, {'role': 'user', 'content': 'ну уровень я дуамаю средний, я готов тратить по 40 минут по понедельникам и пятницам'}, {'role': 'user', 'content': 'у меня болит левое колено, нет'}]
+2023-11-08 00:00:00,694 - INFO - текущие токены пользователя: 802693897 prompt_1=1784
+2023-11-08 00:00:00,695 - INFO - {
+  "id": "chatcmpl-8INSs5ClB1Hle6gCLzukuCbhR2XAe",
+  "object": "chat.completion",
+  "created": 1699390794,
+  "model": "gpt-4-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "\u0425\u043e\u0440\u043e\u0448\u043e, \u0443\u0447\u0442\u0443. \u0415\u0441\u0442\u044c \u043b\u0438 \u0443 \u0442\u0435\u0431\u044f \u043a\u0430\u043a\u0438\u0435-\u0442\u043e \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u0438\u044f, \u043a\u0440\u043e\u043c\u0435 \u0431\u043e\u043b\u0438 \u0432 \u043a\u043e\u043b\u0435\u043d\u0435? \u0418 \u0435\u0441\u0442\u044c \u043b\u0438 \u0443 \u0442\u0435\u0431\u044f \u0434\u043e\u043c\u0430 \u0435\u0449\u0435 \u043a\u0430\u043a\u043e\u0439-\u043d\u0438\u0431\u0443\u0434\u044c \u0441\u043f\u043e\u0440\u0442\u0438\u0432\u043d\u044b\u0439 \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044c, \u043a\u0440\u043e\u043c\u0435 \u0442\u0443\u0440\u043d\u0438\u043a\u0430?"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 566,
+    "completion_tokens": 84,
+    "total_tokens": 650
+  }
+}
+2023-11-08 00:00:36,058 - INFO - from check_form: нет
+2023-11-08 00:00:36,059 - INFO - context: [{'role': 'system', 'content': "Твоя задача сделать анкету по данным предоставлеными пользователем. Формат анкеты следующий:имя,пол,возраст,уровень физической подготовки (от 1 до 10),длительность занятия, физические ограничения,наличие спортивного инвентаря,пожелания по упражнениям. Не задавай вопрос про пол (гендер) пользователя,определи пол по имени. Общайся с пользователем на «ты». Задавай уточняющие вопросы до тех пор пока анкету не заполнишь полностью. Задавай вопросы строго по анкете. Обязательно спроси у пользователя возраст. Задавай по два вопроса за раз. Пиши кратко, не повторяй слова пользователя, не давай лишних комментариев. Начни сообщение с анкетой со слов 'Твоя анкета' .По завершению анкеты, спроси, все ли верно с ней и спроси нужно ли что-то исправить. Не выдавай анкету до тех пор пока она полностью не будет заполнена."}, {'role': 'user', 'content': 'привет, меня зовут егор, мне 17 лет, я хочу делать подтягивания и у меня есть дома турник'}, {'role': 'assistant', 'content': 'Привет, Егор! Для заполнения анкеты мне нужно задать тебе несколько вопросов. Скажи, какой уровень физической подготовки у тебя на данный момент? И сколько времени ты обычно тратишь на занятия?'}, {'role': 'user', 'content': 'ну уровень я дуамаю средний, я готов тратить по 40 минут по понедельникам и пятницам'}, {'role': 'user', 'content': 'у меня болит левое колено, нет'}, {'role': 'user', 'content': 'нет'}]
+2023-11-08 00:00:52,830 - INFO - текущие токены пользователя: 802693897 prompt_1=2563
+2023-11-08 00:00:52,830 - INFO - {
+  "id": "chatcmpl-8INTYHbo8Tf44lByE07yS9a5kHp2Q",
+  "object": "chat.completion",
+  "created": 1699390836,
+  "model": "gpt-4-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "\u0425\u043e\u0440\u043e\u0448\u043e, \u0415\u0433\u043e\u0440. \u0422\u0435\u043f\u0435\u0440\u044c \u0443 \u043c\u0435\u043d\u044f \u0435\u0441\u0442\u044c \u0432\u0441\u0435 \u0434\u0430\u043d\u043d\u044b\u0435 \u0434\u043b\u044f \u0437\u0430\u043f\u043e\u043b\u043d\u0435\u043d\u0438\u044f \u0430\u043d\u043a\u0435\u0442\u044b. \n\n\u0422\u0432\u043e\u044f \u0430\u043d\u043a\u0435\u0442\u0430:\n- \u0418\u043c\u044f: \u0415\u0433\u043e\u0440\n- \u041f\u043e\u043b: \u041c\u0443\u0436\u0441\u043a\u043e\u0439\n- \u0412\u043e\u0437\u0440\u0430\u0441\u0442: 17 \u043b\u0435\u0442\n- \u0423\u0440\u043e\u0432\u0435\u043d\u044c \u0444\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u043e\u0439 \u043f\u043e\u0434\u0433\u043e\u0442\u043e\u0432\u043a\u0438: \u0421\u0440\u0435\u0434\u043d\u0438\u0439\n- \u0414\u043b\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0441\u0442\u044c \u0437\u0430\u043d\u044f\u0442\u0438\u044f: 40 \u043c\u0438\u043d\u0443\u0442 \u043f\u043e \u043f\u043e\u043d\u0435\u0434\u0435\u043b\u044c\u043d\u0438\u043a\u0430\u043c \u0438 \u043f\u044f\u0442\u043d\u0438\u0446\u0430\u043c\n- \u0424\u0438\u0437\u0438\u0447\u0435\u0441\u043a\u0438\u0435 \u043e\u0433\u0440\u0430\u043d\u0438\u0447\u0435\u043d\u0438\u044f: \u0411\u043e\u043b\u044c \u0432 \u043b\u0435\u0432\u043e\u043c \u043a\u043e\u043b\u0435\u043d\u0435\n- \u041d\u0430\u043b\u0438\u0447\u0438\u0435 \u0441\u043f\u043e\u0440\u0442\u0438\u0432\u043d\u043e\u0433\u043e \u0438\u043d\u0432\u0435\u043d\u0442\u0430\u0440\u044f: \u0422\u0443\u0440\u043d\u0438\u043a\n- \u041f\u043e\u0436\u0435\u043b\u0430\u043d\u0438\u044f \u043f\u043e \u0443\u043f\u0440\u0430\u0436\u043d\u0435\u043d\u0438\u044f\u043c: \u041f\u043e\u0434\u0442\u044f\u0433\u0438\u0432\u0430\u043d\u0438\u044f\n\n\u0412\u0441\u0435 \u043b\u0438 \u0432\u0435\u0440\u043d\u043e? \u0418\u043b\u0438 \u0435\u0441\u0442\u044c \u0447\u0442\u043e-\u0442\u043e, \u0447\u0442\u043e \u0442\u044b \u0445\u043e\u0442\u0435\u043b \u0431\u044b \u0438\u0441\u043f\u0440\u0430\u0432\u0438\u0442\u044c?"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 572,
+    "completion_tokens": 207,
+    "total_tokens": 779
+  }
+}
+2023-11-08 00:01:12,548 - INFO - текущие токены пользователя: 802693897 prompt_1=3324
+2023-11-08 00:01:12,549 - INFO - Получили готовую анкету: Твоя анкета:
+Имя: Егор
+Пол: Мужской
+Возраст: 17
+Уровень физической подготовки: 5
+Длительность занятия: 40 минут (понедельник, пятница)
+Физические ограничения: болит левое колено
+Наличие спортивного инвентаря: турник
+Пожелания по упражнениям: подтягивания
+
+Все ли верно? Нужно ли что-то исправить?
+2023-11-08 00:01:12,549 - INFO - создаем программу на основе анкеты пользователя!
+2023-11-08 00:01:56,933 - INFO - текущие токены пользователя: 802693897 prompt_2=1255
+2023-11-08 00:03:54,975 - INFO - from check_program Да, все отлично
+2023-11-08 00:04:50,885 - INFO - текущие токены пользователя: 802693897 prompt_2=2625
+2023-11-08 00:07:21,295 - INFO - from check_program Да
+2023-11-08 00:07:21,404 - INFO - Сохраняем программу для пользователя 802693897
+2023-11-08 00:08:06,549 - INFO - программа Вот твоя программа тренировок:
+
+*Разминка:*
+
+*1. Прогулка на месте: (2 минуты) {Постепенно увеличивай темп, поднимай колени выше, размахивай руками}*
+
+*2. Круговые движения руками: (2 подхода, 15 повторений) {Постепенно увеличивай радиус движений, сначала в одну сторону, затем в другую}*
+
+*3. Наклоны туловища: (2 подхода, 10 повторений) {Старайся касаться руками пола, но не напрягай колени}*
+
+*Основная часть:*
+
+*1. Подтягивания: (3 подхода, 10 повторений) {Вешайся на турник, подтягивайся до уровня груди, медленно опускайся вниз}*
+
+*2. Отжимания: (3 подхода, 15 повторений) {Ложись на пол, руки вдоль тела, отталкивайся от пола до полного прямого положения рук}*
+
+*3. Приседания: (3 подхода, 15 повторений) {Стоя прямо, приседай до уровня колен, затем возвращайся в исходное положение. С осторожностью из-за боли в левом колене}*
+
+*Заминка:*
+
+*1. Растяжка: (5 минут) {Медленно наклоняйся вперед, пытаясь коснуться руками пола, затем медленно возвращайся в исходное положение}*
+
+*2. Дыхательная гимнастика: (5 минут) {Сидя в удобной позе, делай глубокие вдохи и выдохи, стараясь расслабить все мышцы тела}*
+
+Подходит ли тебе эта программа или что-то стоит изменить?
+2023-11-08 00:41:28,672 - ERROR - Infinity polling: polling exited
+2023-11-08 00:41:28,673 - ERROR - Break infinity polling
