@@ -1,4 +1,5 @@
 import time
+import json
 import random
 import logging
 
@@ -37,6 +38,7 @@ if len(bot.get_my_commands()) == 0:
 
 context_messages = {}
 context_messages_program = {}
+context_messages_schedule = {}
 
 tokens = {}
 user_feedback = {}
@@ -46,22 +48,29 @@ user_feedback = {}
 def main(message: types.Message):
     if not BotDatabase.check_user(user_id=message.from_user.id):
         logging.info(f'Новый пользователь с user_id: {message.from_user.id}, добавляем его в базу данных и начинаем диалог')
-        BotDatabase.add_user(message.from_user.id, message.from_user.username)
+        BotDatabase.add_user(message.from_user.id)
 
         start_msg = bot.send_message(message.chat.id, "Привет, я GymLessBot. Я составлю для тебя персонализированную программу тренировки дома.\nРасскажи в голосовом или напиши сообщением:\n*Как тебя зовут?\n*Сколько тебе лет?\n*Какие у тебя предпочтения по упражнениям?\n*Есть ли у тебя какой-либо спортивный инвентарь?")
 
-        if not message.from_user.id in context_messages.keys():
+        if message.from_user.id not in context_messages.keys():
             logging.info(f'Для пользователя user_id: {message.from_user.id} нет контекста. Создаем контекст и счетчик токенов')
             context_messages[message.from_user.id] = []
             context_messages_program[message.from_user.id] = []
             user_feedback[message.from_user.id] = []
+            context_messages_schedule[message.from_user.id] = []
+
             tokens[message.from_user.id] = {"prompt_1": 0, "prompt_2": 0}
+
         logging.info(f'Задаем system на промпт 1')
-        context_messages[message.from_user.id].append({"role": "system", "content": "Твоя задача сделать анкету по данным предоставлеными пользователем. Формат анкеты следующий:имя,пол,возраст,уровень физической подготовки (от 1 до 10),длительность занятия, физические ограничения,наличие спортивного инвентаря,пожелания по упражнениям. Не задавай вопрос про пол (гендер) пользователя,определи пол по имени. Общайся с пользователем на «ты». Задавай уточняющие вопросы до тех пор пока анкету не заполнишь полностью. Задавай вопросы строго по анкете. Обязательно спроси у пользователя возраст. Задавай по два вопроса за раз. Пиши кратко, не повторяй слова пользователя, не давай лишних комментариев. Начни сообщение с анкетой со слов 'Твоя анкета' .По завершению анкеты, спроси, все ли верно с ней и спроси нужно ли что-то исправить. Не выдавай анкету до тех пор пока она полностью не будет заполнена."})
+
+        context_messages[message.from_user.id].append({"role": "system", "content": "Твоя задача сделать анкету по данным предоставлеными пользователем. Формат анкеты следующий: имя, пол, возраст, уровень физической подготовки (от 1 до 10), продолжительность занятия, физические ограничения, наличие спортивного инвентаря, пожелания по упражнениям. Не задавай вопрос про пол (гендер) пользователя, определи пол по имени. Вопрос про продолжительность занятия должен звучать так: 'Какая продолжительность одного занятия для тебя оптимальна?'. Общайся с пользователем на «ты». Задавай уточняющие вопросы до тех пор пока анкету не заполнишь полностью. Задавай вопросы строго по анкете. Задавай не более двух вопросов за один раз. Обязательно спроси про пожелания по упражнениям. Пиши кратко, не давай лишних комментариев. Покажи анкету пользователю только после того, как она будет полностью заполнена. Если анкета составлена успешно, начни своё сообщение с 'Твоя анкета'. По завершению анкеты, спроси все ли верно с ней. Скажи, что можно написать если что-то не так. "})
+        context_messages[message.from_user.id].append({"role": "assistant", "content": "Как тебя зовут? Сколько тебе лет? Если у тебя спортивный инвентарь?"})
+
         bot.register_next_step_handler(start_msg, get_info)
+
     else:
         logging.info(f'Пользователь с user_id: {message.from_user.id} уже существует')
-        if not message.from_user.id in user_feedback.keys():
+        if message.from_user.id not in user_feedback.keys():
             user_feedback[message.from_user.id] = []
         bot.send_message(message.from_user.id, "Привет, вижу ты уже зарегестрирован.\nДля того что бы начать тренировку нажимай /start_sport или воспользуйся нашим меню.")
 
@@ -93,7 +102,7 @@ def get_info(message: types.Message):
         form_completion = openai.ChatCompletion.create(
             model=config.GPT_3_5,
             messages=context_messages[message.from_user.id],
-            temperature=0.2
+            temperature=0.3
         )
         logging.info(f'Получили ответ от GPT. Ответ: {form_completion.choices[0].message.content}')
 
@@ -101,9 +110,17 @@ def get_info(message: types.Message):
         logging.info(f'Cчитаем токены для пользователя (user_id: {message.from_user.id}), итого prompt_1 = {tokens[message.from_user.id]["prompt_1"]}')
 
         context_messages[message.from_user.id].append({"role": "assistant", "content": form_completion.choices[0].message.content})
-        logging.info('Переходим к уточняющим вопросам, если они нужны')
-        check_message = bot.send_message(message.chat.id, form_completion.choices[0].message.content)
-        bot.register_next_step_handler(check_message, check_form)
+        key_word = 'анкета'
+
+        if key_word in str(form_completion.choices[0].message.content).lower():
+            logging.info(f'Слово тригре в ответе от GPT, выдаем клаваиатуру, если ответ пользователя положительный, переходим к промпту 2')
+            s2 = bot.send_message(message.chat.id, form_completion.choices[0].message.content,
+                                  reply_markup=markup_keyboard_accept)
+            bot.register_next_step_handler(s2, final_check_form)
+        else:
+            logging.info('Переходим к уточняющим вопросам, если они нужны')
+            check_message = bot.send_message(message.chat.id, form_completion.choices[0].message.content)
+            bot.register_next_step_handler(check_message, check_form)
 
     elif message.content_type == 'text':
         logging.info('Пользователь отправил текстоовое сообщение')
@@ -119,7 +136,7 @@ def get_info(message: types.Message):
         form_completion = openai.ChatCompletion.create(
             model=config.GPT_3_5,
             messages=context_messages[message.from_user.id],
-            temperature=0.2
+            temperature=0.3
         )
 
         logging.info(f'Получили ответ GPT. Ответ: {form_completion.choices[0].message.content}')
@@ -128,10 +145,17 @@ def get_info(message: types.Message):
         logging.info(f'Считаем токены для пользователя (user_id: {message.from_user.id}): {message.from_user.id}, итого prompt_1 = {tokens[message.from_user.id]["prompt_1"]}')
 
         context_messages[message.from_user.id].append({"role": "assistant", "content": form_completion.choices[0].message.content})
-        logging.info('Переходим к уточняющим вопросам, если они нужны')
 
-        check_message = bot.send_message(message.chat.id, form_completion.choices[0].message.content)
-        bot.register_next_step_handler(check_message, check_form)
+        key_word = 'анкета'
+
+        if key_word in str(form_completion.choices[0].message.content).lower():
+            logging.info(f'Слово тригре в ответе от GPT, выдаем клаваиатуру, если ответ пользователя положительный, переходим к промпту 2')
+            s2 = bot.send_message(message.chat.id, form_completion.choices[0].message.content,reply_markup=markup_keyboard_accept)
+            bot.register_next_step_handler(s2, final_check_form)
+        else:
+            logging.info('Переходим к уточняющим вопросам, если они нужны')
+            check_message = bot.send_message(message.chat.id, form_completion.choices[0].message.content)
+            bot.register_next_step_handler(check_message, check_form)
 
 
 def check_form(message: types.Message):
@@ -172,20 +196,29 @@ def final_check_form(message: types.Message):
     if ok == 'Да':
         logging.info(f'Пользователь (user_id: {message.from_user.id}) подтвердил корректность анкеты, начианем составлять для него программу')
         bot.send_message(message.chat.id,"Отлично! Составляю для тебя программу, это займет не больше минуты.")
-        logging.info(f'Перед составлением программы, получаем заполненую форму пользователя без лишнего текста, для того, чтобы передать ее в промпт 2')
-        context_messages[message.from_user.id].append({"role": "assistant", "content": "Выдай полученную форму"})
+        logging.info(f'Перед составлением программы, получаем заполненую json форму пользователя без лишнего текста, для того, чтобы передать ее в промпт 2')
+
+
+        context_messages[message.from_user.id].append({"role": "assistant", "content": 'Переделай этот текст в json формат, где "profile" - массив внутри которого есть "name", "sex", "age","level","duration","issues","equipment", "wishes" . Не давай никаких комментариев.'})
 
         get_ready_form = openai.ChatCompletion.create(
             model=config.GPT_3_5,
             messages=context_messages[message.from_user.id],
-            temperature=0.1
+            temperature=0.2
         )
+
+        json_form = json.loads(get_ready_form.choices[0].message.content.replace("'", '"'))
+
+        logging.info(f'json form {json_form}')
+
+        BotDatabase.insert_user_form(message.from_user.id, json_form)
+
         logging.info(f'Получили форму пользователя (user_id: {message.from_user.id}), форма: {get_ready_form.choices[0].message.content}, передаем ее во 2 промпт')
 
         tokens[message.from_user.id]["prompt_1"] += int(get_ready_form.usage.total_tokens)
         logging.info(f'Считаем токены для пользователя (user_id: {message.from_user.id}): {message.from_user.id}, итого prompt_1 = {tokens[message.from_user.id]["prompt_1"]}')
 
-        context_messages_program[message.from_user.id].append({"role": "system", "content": "Ты - тренер по фитнесу, который составляет индивидуальную программу спортивных занятий дома. Не здоровайся с пользователем. У тебя есть анкета которую ты получаешь от пользователя. Сделай логичную программу с учётом анкеты пользователя. Сделай программу в следующем формате: название упражнения: (количество подходов, количество повторений/время в позиции) {краткая пошаговая инструкция по выполнению упражнений}.Обязательно разграничь каждое упражнение с начала и с конца символом '*' (пример:*1.Прогулка на месте: (2 минуты) {Постепенно увеличивай темп, поднимай колени выше, размахивай руками}*). Подстраивай количество подходов и повторений в зависимости от уровня физической подготовки пользователя, возраста и пола. Общайся с пользователем на «ты». Помни, тренировка начинается с разминки, далее основная часть (силовая), а в конце заминка. Предлагай не более 4-5 упражнений на каждый этап тренировки. Ты должен иметь в виду все данные предоставленные в анкете. Сделай предупреждение «с осторожностью из-за {физическое ограничение}, если упражнение затрагивает физическое ограничение. После создания программы спроси у пользователя подходит ли ему программа и что можно изменить. Если пользователя что-то не устраивает,сразу выдавай измененную программу. При внесении изменений в программу, выводи только измененное упражнение/упражнения. Повтори программу полностью, только после успешного согласования и одобрительного ответа пользователя. Не задавай лишних вопросов."})
+        context_messages_program[message.from_user.id].append({"role": "system", "content": "Ты - тренер по фитнесу, который составляет индивидуальную программу спортивных занятий дома. Не здоровайся с пользователем. Общайся с пользователем на «ты». У тебя есть анкета которую ты получаешь от пользователя. Сделай логичную программу с учётом анкеты пользователя. Рядом с каждым упражнением подпиши: количество подходов, количество повторений/времени в позиции. Подстраивай количество подходов и повторений в зависимости от уровня физической подготовки пользователя (от 1 до 10). Давай точное количество повторений/время. Помни, тренировка начинается с разминки, далее основная часть (силовая), а в конце заминка. Предлагай не более 4-5 на каждый этап тренировки. Ты должен иметь в виду все данные предоставленные в анкете. Начинай своё сообщение только с 'Твоя программа тренировки', когда отдаёшь программу полностью. Сделай предупреждение, если упражнение затрагивает физическое ограничение. После создания программы спроси у пользователя подходит ли ему программа. Если нет, то что можно изменить. При внесении изменений в программу, выводи только измененное упражнение/упражнения. Повтори программу полностью, только после одобрительного ответа пользователя. Не прощайся с пользователем."})
         context_messages_program[message.from_user.id].append({"role": "user", "content": get_ready_form.choices[0].message.content})
         context_messages[message.from_user.id].clear()
 
@@ -196,6 +229,7 @@ def final_check_form(message: types.Message):
             messages=context_messages_program[message.from_user.id],
             temperature=0.4
         )
+
         logging.info(f'Ответ от GPT получен, программа готова: {pre_program.choices[0].message.content}')
 
         tokens[message.from_user.id]["prompt_2"] += int(pre_program.usage.total_tokens)
@@ -228,27 +262,33 @@ def check_program(message: types.Message):
         bot.send_message(message.chat.id, "Хорошо, пожалуйста подожди, сохраняю твою программу!")
         logging.info(f'Сохраняем программу для пользователя {message.from_user.id}')
 
-        context_messages_program[message.from_user.id].append({"role": "assistant", "content": "Выдай созданную программу"})
+        context_messages_program[message.from_user.id].append({"role": "assistant", "content": 'Переделай этот текст в json формат, где "training" - массив внутри которого есть массивы "Разминка" , "Основная часть", "Заминка" внутри которых есть "Упражнение 1", "Упражнение 2", "Упражнение 3" и так далее. Не давай никаких комментариев.'})
 
         get_program = openai.ChatCompletion.create(
             model=config.GPT_3_5,
             messages=context_messages_program[message.from_user.id],
-            temperature=0.1
+            temperature=0.2
         )
 
-        logging.info(f'программа {get_program.choices[0].message.content}')
-        a = str(get_program.choices[0].message.content).replace("\n", " ")
-        a = a.split("*")
+        logging.info(f'json prog: {get_program.choices[0].message.content}')
 
-        list_exercises = []
+        # logging.info(f'программа {get_program.choices[0].message.content}')
+        # a = str(get_program.choices[0].message.content).replace("\n", " ")
+        # a = a.split("*")
+        #
+        # list_exercises = []
+        #
+        # for elem in a:
+        #     if elem and elem[0].isdigit():
+        #         list_exercises.append(elem.split("*")[0])
 
-        for elem in a:
-            if elem and elem[0].isdigit():
-                list_exercises.append(elem.split("*")[0])
+        # BotDatabase.insert(message.from_user.id, list_exercises)
 
-        BotDatabase.insert(message.from_user.id, list_exercises)
+        bot.send_message(message.chat.id,"Я сохранил твою программу!")
+        timetable = bot.send_message(message.chat.id, "В какие дни недели и время тебе удобно заниматься?")
 
-        bot.send_message(message.chat.id,"Я сохранил твою программу! Если ты хочешь начать тренировку сейчас нажми /start_sport")
+        context_messages_schedule[message.from_user.id].append({"role": "system", "content": "Твоя задача написать расписание занятий по информации от пользователя в следующем формате: день недели: время (в 24 часовом формате, пример: 15:45 или 07:25). Каждый день недели напиши отдельной строкой. Дай только один временный слот, если пользователь даёт несколько. Пиши кратко, не задавай лишних вопросов. Общайся с пользователем на «ты». Если расписание составлено, начни своё сообщение с 'Твоё расписание'. Спроси всё ли верно."})
+        bot.register_next_step_handler(timetable, set_user_schedule)
 
     else:
         context_messages_program[message.from_user.id].append({"role": "user", "content": user_answer})
@@ -263,9 +303,51 @@ def check_program(message: types.Message):
         check = bot.send_message(message.chat.id, form.choices[0].message.content, reply_markup=markup_keyboard_accept)
         bot.register_next_step_handler(check, check_program)
 
+
+def set_user_schedule(message: types.Message):
+    user_answer = message.text
+    context_messages_schedule[message.from_user.id].append({"role": "user", "content": user_answer})
+
+    user_schedule = openai.ChatCompletion.create(
+        model=config.GPT_4_TURBO,
+        messages=context_messages_schedule[message.from_user.id],
+        temperature=0.3
+    )
+
+    context_messages_schedule[message.from_user.id].append({"role":"assistant", "content": user_schedule.choices[0].message.content})
+
+    check = bot.send_message(message.chat.id, user_schedule.choices[0].message.content, reply_markup=markup_keyboard_accept)
+    bot.register_next_step_handler(check, check_schedule)
+
+
+def check_schedule(message: types.Message):
+    user_answer = message.text
+    if user_answer == 'Да':
+        bot.send_message(message.chat.id, "Хорошо, сохраню твое распиасание!")
+        context_messages_schedule[message.from_user.id].append({"role":"system", "content": "Переделай этот текст в json формат, где 'schedule' - массив внутри которого есть 'dayOfWeek'  и 'time'. Не давай никаких комментариев."})
+        json_schedule = openai.ChatCompletion.create(
+            model=config.GPT_3_5,
+            messages=context_messages_schedule[message.from_user.id],
+            temperature=0.2
+        )
+        logging.info(f'{json_schedule.choices[0].message.content}')
+        json_schedule_ready = json.loads(json_schedule.choices[0].message.content)
+        BotDatabase.insert_schedule(message.from_user.id, json_schedule_ready)
+
+    else:
+        context_messages_schedule[message.from_user.id].append({"role": "user", "content": user_answer})
+        change_schedule = openai.ChatCompletion.create(
+            model=config.GPT_4_TURBO,
+            messages=context_messages_schedule[message.from_user.id],
+            temperature=0.3
+        )
+        change = bot.send_message(message.chat.id, change_schedule.choices[0].message.content)
+        bot.register_next_step_handler(change, set_user_schedule)
+
+
 @bot.message_handler(commands=['start_sport'])
 def start_sport(message: types.Message):
-    if not message.from_user.id in user_feedback.keys():
+    if message.from_user.id not in user_feedback.keys():
         user_feedback[message.from_user.id] = []
 
     exercises = BotDatabase.get_exercises(message.from_user.id)
