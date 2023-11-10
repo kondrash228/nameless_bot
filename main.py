@@ -27,9 +27,9 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 
 BotDatabase = BotDatabase('fintess-ai.sqlite')
 
-if len(bot.get_my_commands()) == 0:
-    logging.info('У бота нет настроенных команд, устанавливаем их')
-    bot.set_my_commands([
+# if len(bot.get_my_commands()) == 0:
+logging.info('У бота нет настроенных команд, устанавливаем их')
+bot.set_my_commands([
         telebot.types.BotCommand('/start', "Главная"),
         telebot.types.BotCommand('/start_sport', "Начать тренировку сейчас"),
         telebot.types.BotCommand('/schedule', "Запланированые тренировки"),
@@ -386,7 +386,7 @@ def set_user_schedule(message: types.Message):
 def check_schedule(message: types.Message):
     user_answer = message.text
     if user_answer == 'Да':
-        bot.send_message(message.chat.id, "Хорошо, сохраню твое распиасание!")
+        bot.send_message(message.chat.id, "Хорошо, сохраню твое распиасание! Ты можешь начать программу сейчас, нажав /start_sport")
         context_messages_schedule[message.from_user.id].append({"role":"system", "content": "Переделай этот текст в json формат, где 'schedule' - массив внутри которого есть 'dayOfWeek'  и 'time'. Не давай никаких комментариев."})
         json_schedule = openai.ChatCompletion.create( #3.5
             model=config.GPT_3_5,
@@ -412,21 +412,25 @@ def check_schedule(message: types.Message):
 def start_sport(message: types.Message):
     if message.from_user.id not in user_feedback.keys():
         user_feedback[message.from_user.id] = []
-
-    exercises = BotDatabase.get_user_program(message.from_user.id)
-    count_exercises = len(exercises)
-
-    if count_exercises == 0:
+    count_exercises = None
+    exercises = None
+    try:
+        exercises = BotDatabase.get_user_program(message.from_user.id)
+        count_exercises = len(exercises)
+    except:
         bot.send_message(message.chat.id, "К сожалению я не смог найти твою спортивную программу\nДля того, чтобы создать ее, жми /start!")
-    else:
-        bot.send_message(message.chat.id,"Отлично что ты решил начать тренировку! Загружаю твою программу и вперед тренироваться")
-        time.sleep(0.3)
-        logging.info(f"Получаем упраженения из бд для пользователя {message.from_user.id}")
+    if exercises:
+        if count_exercises == 0:
+            bot.send_message(message.chat.id, "К сожалению я не смог найти твою спортивную программу\nДля того, чтобы создать ее, жми /start!")
+        else:
+            bot.send_message(message.chat.id,"Отлично что ты решил начать тренировку! Загружаю твою программу и вперед тренироваться")
+            time.sleep(0.3)
+            logging.info(f"Получаем упраженения из бд для пользователя {message.from_user.id}")
 
-        logging.info(f"Получили упражнения пользователя, из количество - {count_exercises}, упражнения - {exercises}")
+            logging.info(f"Получили упражнения пользователя, из количество - {count_exercises}, упражнения - {exercises}")
 
-        first = bot.send_message(message.chat.id, f"Упражнение {exercises[0][0]}", reply_markup=markup_keyboard_exercises)
-        bot.register_next_step_handler(first, check_ex, exercises, 0, 0)
+            first = bot.send_message(message.chat.id, f"Упражнение {exercises[0][0]}", reply_markup=markup_keyboard_exercises)
+            bot.register_next_step_handler(first, check_ex, exercises, 0, 0)
 
 
 def check_ex(message: types.Message, exercises, n, n2):
@@ -503,34 +507,41 @@ def edit_prog(message: types.Message):
     context_messages_remake_program[message.from_user.id] = []
     context_messages_remake_program_json[message.from_user.id] = []
 
-    context_messages_remake_program[message.from_user.id].append({"role": "system", "content": "Ты - тренер по фитнесу, который составляет индивидуальную программу спортивных занятий дома. Не здоровайся с пользователем. Общайся с пользователем на «ты». У тебя есть анкета которую ты получаешь от пользователя. Сделай логичную программу с учётом анкеты пользователя. Рядом с каждым упражнением подпиши: количество подходов, количество повторений/времени в позиции. Подстраивай количество подходов и повторений в зависимости от уровня физической подготовки пользователя (от 1 до 10). Давай точное количество повторений/время. Помни, тренировка начинается с разминки, далее основная часть (силовая), а в конце заминка. Предлагай не более 4-5 на каждый этап тренировки. Ты должен иметь в виду все данные предоставленные в анкете. Начинай своё сообщение только с 'Твоя программа тренировки', когда отдаёшь программу полностью. Сделай предупреждение, если упражнение затрагивает физическое ограничение. После создания программы спроси у пользователя подходит ли ему программа. Если нет, то что можно изменить. При внесении изменений в программу, выводи только измененное упражнение/упражнения. Повтори программу полностью, только после одобрительного ответа пользователя. Не прощайся с пользователем. "})
-
-    program = BotDatabase.get_user_program(message.from_user.id)
-    if len(program) == 0:
-        check = bot.send_message(message.chat.id, "Не нашел твоей программы, для того чтобы создать ее жми на кнопку ниже", reply_markup=markup_keyboard_set_program)
+    context_messages_remake_program[message.from_user.id].append({"role": "system", "content": "Ты - тренер по фитнесу, который составляет индивидуальную программу спортивных занятий дома. Не здоровайся с пользователем. Общайся с пользователем на «ты». У тебя есть анкета которую ты получаешь от пользователя. Сделай логичную программу с учётом анкеты пользователя. Рядом с каждым упражнением подпиши: количество подходов, количество повторений/времени в позиции. Подстраивай количество подходов и повторений в зависимости от уровня физической подготовки пользователя (от 1 до 10). Давай точное количество повторений/время. Помни, тренировка начинается с разминки, далее основная часть (силовая), а в конце заминка. Предлагай не более 4-5 на каждый этап тренировки. Ты должен иметь в виду все данные предоставленные в анкете. Начинай своё сообщение только с 'Твоя программа тренировки', когда отдаёшь программу полностью. Сделай предупреждение, если упражнение затрагивает физическое ограничение. Не прощайся с пользователем. "})
+    program = None
+    try:
+        program = BotDatabase.get_user_program(message.from_user.id)
+    except:
+        check = bot.send_message(message.chat.id,
+                                 "Не нашел твоей программы, для того чтобы создать ее жми на кнопку ниже",
+                                 reply_markup=markup_keyboard_set_program)
         bot.register_next_step_handler(check, re_call_prompt)
-    else:
-        start = '*Разминка*\n ' + '\n'.join(program[0]) + "\n"
-        mid = '*Основная часть*\n ' + '\n'.join(program[1]) + "\n"
-        end = '*Заминка*\n ' + '\n'.join(program[2])
-        ready_prog = [start, mid, end]
-        user_form = BotDatabase.get_user_form(message.from_user.id)
+    if program:
+        if len(program) == 0:
+            check = bot.send_message(message.chat.id, "Не нашел твоей программы, для того чтобы создать ее жми на кнопку ниже", reply_markup=markup_keyboard_set_program)
+            bot.register_next_step_handler(check, re_call_prompt)
+        else:
+            start = '*Разминка*\n ' + '\n'.join(program[0]) + "\n"
+            mid = '*Основная часть*\n ' + '\n'.join(program[1]) + "\n"
+            end = '*Заминка*\n ' + '\n'.join(program[2])
+            ready_prog = [start, mid, end]
+            user_form = BotDatabase.get_user_form(message.from_user.id)
 
-        ready_form = {"name": user_form[0], "sex": user_form[1], "age": user_form[2], "level": user_form[3], "duration": user_form[4], "issues": user_form[5], "equipment": user_form[6], "wishes": user_form[7]}
+            ready_form = {"name": user_form[0], "sex": user_form[1], "age": user_form[2], "level": user_form[3], "duration": user_form[4], "issues": user_form[5], "equipment": user_form[6], "wishes": user_form[7]}
 
-        check = bot.send_message(message.chat.id, 'Твоя программа\n\n' + '\n'.join(ready_prog), parse_mode="Markdown", reply_markup=markup_keyboard_set_program)
+            check = bot.send_message(message.chat.id, 'Твоя программа\n\n' + '\n'.join(ready_prog), parse_mode="Markdown", reply_markup=markup_keyboard_set_program)
 
-        context_messages_remake_program[message.from_user.id].append({"role": "user", "content": str('Твоя программа\n\n' + '\n'.join(ready_prog))})
-        context_messages_remake_program[message.from_user.id].append({"role": "user", "content": str(ready_form)})
+            context_messages_remake_program[message.from_user.id].append({"role": "user", "content": str('Твоя программа\n\n' + '\n'.join(ready_prog))})
+            context_messages_remake_program[message.from_user.id].append({"role": "user", "content": str(ready_form)})
 
-        bot.register_next_step_handler(check, re_call_prompt)
+            bot.register_next_step_handler(check, re_call_prompt)
 
 
 def re_call_prompt(message: types.Message):
     user_answer = message.text
 
     if user_answer == 'Настроить новую программу':
-        BotDatabase.drop_user_program()
+        BotDatabase.drop_user_program(message.from_user.id)
 
         change = bot.send_message(message.chat.id,"Хорошо, давай я создам тебе новую программу, напиши пожалуйста свои пожелания")
         bot.register_next_step_handler(change, remake_prog)
@@ -546,6 +557,8 @@ def remake_prog(message:types.Message):
         messages=context_messages_remake_program[message.from_user.id],
         temperature=0.4
     )
+    bot.send_message(message.chat.id, remake_program.choices[0].message.content)
+
     context_messages_remake_program_json[message.from_user.id].append({"role": "assistant", "content": remake_program.choices[0].message.content})
     context_messages_remake_program_json[message.from_user.id].append({"role": "system","content": 'Сделай этот текст в json формат, где "training" - массив внутри которого есть массивы "Разминка" , "Основная часть", "Заминка" внутри которых есть "Упражнение 1", "Упражнение 2", "Упражнение 3" и так далее. Не давай никаких комментариев. Не меняй содержание текста.'})
     raw_program = """

@@ -83,10 +83,10 @@ class BotDatabase:
             self.cur.execute(f'ALTER TABLE users DROP COLUMN {dayweek.split(",")[0]}')
         self.conn.commit()
 
-    def drop_user_program(self):
-        self.cur.execute(f'ALTER TABLE users DROP COLUMN `Разминка`')
-        self.cur.execute(f'ALTER TABLE users DROP COLUMN `Основная часть`')
-        self.cur.execute(f'ALTER TABLE users DROP COLUMN `Заминка`')
+    def drop_user_program(self, user_id:int):
+        self.cur.execute(f'UPDATE users SET `Разминка` = NULL WHERE user_id = ?', (user_id,))
+        self.cur.execute(f'UPDATE users SET `Основная часть` = NULL WHERE user_id = ?', (user_id,))
+        self.cur.execute(f'UPDATE users SET `Заминка` = NULL WHERE user_id = ?', (user_id,))
         self.conn.commit()
 
     def get_user_form(self, user_id):
