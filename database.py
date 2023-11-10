@@ -1,4 +1,5 @@
 import sqlite3
+import datetime
 
 
 class BotDatabase:
@@ -34,7 +35,8 @@ class BotDatabase:
         for weekday in schedule["schedule"]:
             if weekday['dayOfWeek'] not in column_names:
                 self.cur.execute("ALTER TABLE users ADD COLUMN '%s' 'string'" % weekday['dayOfWeek'])
-            self.cur.execute(f"UPDATE users SET `{weekday['dayOfWeek']}` = ? WHERE user_id = ?", (weekday['time'], user_id))
+            self.cur.execute(f"UPDATE users SET `{weekday['dayOfWeek']}` = ? WHERE user_id = ?",
+                             (','.join([weekday['dayOfWeek'], weekday['time']]), user_id))
 
         return self.conn.commit()
 
@@ -64,5 +66,47 @@ class BotDatabase:
             exercises.append(result.fetchone()[0].split(','))
         return exercises
 
+    def get_user_schedule(self, user_id: int):
+        res = self.cur.execute(f"SELECT * FROM `users` WHERE `user_id` = ?", (user_id,))
+        time = []
+        for elem in res.fetchone():
+            try:
+                datetime.datetime.strptime(elem.split(',')[1], "%H:%M")
+                time.append(elem)
+            except:
+                continue
+        return time
+
+    def drop_user_schedule(self, user_id: int):
+        program = self.get_user_schedule(user_id)
+        for dayweek in program:
+            self.cur.execute(f'ALTER TABLE users DROP COLUMN {dayweek.split(",")[0]}')
+        self.conn.commit()
+
     def close_conn(self):
         self.conn.close()
+
+#
+# BotDatabase = BotDatabase('fintess-ai.sqlite')
+#
+# jsonf = """
+# {
+#   "schedule": [
+#     {
+#       "dayOfWeek": "понедельник",
+#       "time": "15:00"
+#     },
+#     {
+#       "dayOfWeek": "среда",
+#       "time": "19:00"
+#     }
+#   ]
+# }
+# """
+#
+# import json
+#
+# n = json.loads(jsonf)
+#
+#
+# BotDatabase.insert_schedule(802693897, n)

@@ -793,3 +793,243 @@ AttributeError: 'list' object has no attribute 'items'
 }
 2023-11-10 01:59:57,800 - ERROR - Infinity polling: polling exited
 2023-11-10 01:59:57,800 - ERROR - Break infinity polling
+2023-11-10 02:03:04,635 - INFO - Новый пользователь с user_id: 802693897, добавляем его в базу данных и начинаем диалог
+2023-11-10 02:03:04,856 - INFO - Для пользователя user_id: 802693897 нет контекста. Создаем контекст и счетчик токенов
+2023-11-10 02:03:04,857 - INFO - Задаем system на промпт 1
+2023-11-10 02:03:19,203 - INFO - Пользователь отправил текстоовое сообщение
+2023-11-10 02:03:19,317 - INFO - Сообщение пользователя (user_id: 802693897): меня зовут егор, мне 17, хочу отжимания, есть турник
+2023-11-10 02:03:19,317 - INFO - Добавляем полученный текст в контекст пользователя (user_id: 802693897)
+2023-11-10 02:03:21,320 - INFO - Получили ответ GPT. Ответ: Какой уровень физической подготовки у тебя? Какая продолжительность одного занятия для тебя оптимальна? Есть ли у тебя какие-либо физические ограничения?
+2023-11-10 02:03:21,321 - INFO - Считаем токены для пользователя (user_id: 802693897): 802693897, итого prompt_1_input = 490, prompt_1_output = 69
+2023-11-10 02:03:21,321 - INFO - Переходим к уточняющим вопросам, если они нужны
+2023-11-10 02:03:31,673 - INFO - Ответ пользователя (check_form): 5, 50 минут, болит левое колено
+2023-11-10 02:03:31,674 - INFO - Добавляем ответ пользователя в контекст
+2023-11-10 02:03:35,413 - INFO - Ответ от GPT получен. Ответ: Твоя анкета:
+Имя: Егор
+Пол: Мужской
+Возраст: 17 лет
+Уровень физической подготовки: 5/10
+Продолжительность занятия: 50 минут
+Физические ограничения: Болит левое колено
+Наличие спортивного инвентаря: Есть турник
+Пожелания по упражнениям: Хочу заниматься отжиманиями
+
+Все верно? Если есть что-то, что нужно исправить или добавить, пожалуйста, напиши.
+2023-11-10 02:03:35,413 - INFO - Считаем токены для пользователя (user_id: 802693897): 802693897, итого prompt_1_input = 1072, prompt_1_output = 239
+2023-11-10 02:03:35,413 - INFO - Проверяем, есть ли слово тригер(анкета) в ответе от GPT
+2023-11-10 02:03:35,413 - INFO - Слово тригре в ответе от GPT, выдаем клаваиатуру, если ответ пользователя положительный, переходим к промпту 2
+2023-11-10 02:03:37,985 - INFO - Переходим к финальной проверке анкеты пользователя. Ответ пользователя на форму: Да
+2023-11-10 02:03:37,985 - INFO - Пользователь (user_id: 802693897) подтвердил корректность анкеты, начианем составлять для него программу
+2023-11-10 02:03:38,081 - INFO - Перед составлением программы, получаем заполненую json форму пользователя без лишнего текста, для того, чтобы передать ее в промпт 2
+2023-11-10 02:03:40,332 - INFO - json form {'profile': {'name': 'Егор', 'sex': 'мужской', 'age': 17, 'level': 5, 'duration': '50 минут', 'issues': 'болит левое колено', 'equipment': 'турник', 'wishes': 'отжимания'}}
+2023-11-10 02:03:40,335 - INFO - Получили форму пользователя (user_id: 802693897), форма: {
+  "profile": {
+    "name": "Егор",
+    "sex": "мужской",
+    "age": 17,
+    "level": 5,
+    "duration": "50 минут",
+    "issues": "болит левое колено",
+    "equipment": "турник",
+    "wishes": "отжимания"
+  }
+}, передаем ее во 2 промпт
+2023-11-10 02:03:40,336 - INFO - Считаем токены для пользователя (user_id: 802693897): 802693897, итого prompt_1_input = 1721, prompt_1_output = 324
+2023-11-10 02:03:40,336 - INFO - Создаем программу на основе полученной формы (анкеты), ждем ответ от GPT
+2023-11-10 02:03:51,255 - INFO - Ответ от GPT получен, программа готова: Твоя программа тренировки:
+
+**Разминка (10 минут)**:
+1. Ходьба на месте - 2 минуты.
+2. Вращение руками - 1 минута (30 секунд вперед, 30 секунд назад).
+3. Наклоны туловища в стороны - 2 подхода по 10 повторений.
+4. Легкие приседания (без глубокого приседа, чтобы не нагружать колено) - 2 подхода по 8 повторений.
+
+**Основная часть (35 минут)**:
+1. Отжимания от пола - 3 подхода по 10 повторений.
+2. Подтягивания на турнике (если нет боли в колене) - 3 подхода по 6 повторений.
+3. Планка - 3 подхода по 30 секунд.
+4. Берпи (без прыжка в конце, чтобы снизить нагрузку на колено) - 3 подхода по 8 повторений.
+
+**Заминка (5 минут)**:
+1. Растяжка грудных мышц - 2 подхода по 30 секунд.
+2. Растяжка бицепсов и предплечий - 2 подхода по 30 секунд на каждую руку.
+3. Растяжка квадрицепсов стоя (держать баланс, не нагружая левое колено) - 2 подхода по 30 секунд на каждую ногу.
+
+Если какое-то упражнение вызывает дискомфорт в колене, его следует исключить или заменить. Подходит ли тебе предложенная программа или есть пожелания по изменениям?
+2023-11-10 02:03:51,257 - INFO - Считаем токены для пользователя (user_id: 802693897): 802693897, итого prompt_2_input = 554, prompt_2_output = 494
+2023-11-10 02:03:52,996 - INFO - from check_program Да
+2023-11-10 02:03:53,200 - INFO - Сохраняем программу для пользователя 802693897
+2023-11-10 02:04:00,717 - INFO - json prog: {
+  "training": {
+    "Разминка": [
+      "Ходьба на месте - 2 минуты",
+      "Вращение руками - 1 минута (30 секунд вперед, 30 секунд назад)",
+      "Наклоны туловища в стороны - 2 подхода по 10 повторений",
+      "Легкие приседания - 2 подхода по 8 повторений"
+    ],
+    "Основная часть": [
+      "Отжимания от пола - 3 подхода по 10 повторений",
+      "Подтягивания на турнике - 3 подхода по 6 повторений",
+      "Планка - 3 подхода по 30 секунд",
+      "Берпи - 3 подхода по 8 повторений"
+    ],
+    "Заминка": [
+      "Растяжка грудных мышц - 2 подхода по 30 секунд",
+      "Растяжка бицепсов и предплечий - 2 подхода по 30 секунд на каждую руку",
+      "Растяжка квадрицепсов стоя - 2 подхода по 30 секунд на каждую ногу"
+    ]
+  }
+}
+2023-11-10 02:04:19,005 - INFO - {
+  "schedule": [
+    {
+      "dayOfWeek": "понедельник",
+      "time": "15:00"
+    },
+    {
+      "dayOfWeek": "среда",
+      "time": "19:00"
+    }
+  ]
+}
+2023-11-10 02:04:37,608 - ERROR - Infinity polling: polling exited
+2023-11-10 02:04:37,608 - ERROR - Break infinity polling
+2023-11-10 02:25:07,686 - ERROR - Infinity polling: polling exited
+2023-11-10 02:25:07,687 - ERROR - Break infinity polling
+2023-11-10 02:25:14,273 - ERROR - Infinity polling: polling exited
+2023-11-10 02:25:14,273 - ERROR - Break infinity polling
+2023-11-10 02:25:22,320 - ERROR - Infinity polling: polling exited
+2023-11-10 02:25:22,321 - ERROR - Break infinity polling
+2023-11-10 02:32:07,177 - ERROR - Infinity polling: polling exited
+2023-11-10 02:32:07,178 - ERROR - Break infinity polling
+2023-11-10 02:32:24,363 - ERROR - Infinity polling exception: 802693897
+2023-11-10 02:32:24,367 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 362, in set_user_schedule
+    context_messages_schedule[message.from_user.id].append({"role": "user", "content": user_answer})
+KeyError: 802693897
+
+2023-11-10 02:40:23,824 - ERROR - Infinity polling: polling exited
+2023-11-10 02:40:23,825 - ERROR - Break infinity polling
+2023-11-10 02:46:44,954 - ERROR - Infinity polling: polling exited
+2023-11-10 02:46:44,955 - ERROR - Break infinity polling
+2023-11-10 02:49:20,602 - ERROR - Infinity polling: polling exited
+2023-11-10 02:49:20,602 - ERROR - Break infinity polling
+2023-11-10 02:50:06,107 - ERROR - Infinity polling: polling exited
+2023-11-10 02:50:06,107 - ERROR - Break infinity polling
+2023-11-10 02:50:54,054 - INFO - {
+  "schedule": [
+    {
+      "dayOfWeek": "пятница",
+      "time": "15:00"
+    }
+  ]
+}
+2023-11-10 02:51:19,758 - ERROR - Infinity polling: polling exited
+2023-11-10 02:51:19,759 - ERROR - Break infinity polling
+2023-11-10 02:51:23,034 - INFO - Пользователь с user_id: 802693897 уже существует
+2023-11-10 02:51:32,468 - ERROR - Infinity polling exception: 802693897
+2023-11-10 02:51:32,471 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 362, in set_user_schedule
+    context_messages_schedule[message.from_user.id].append({"role": "user", "content": user_answer})
+KeyError: 802693897
+
+2023-11-10 02:52:01,745 - ERROR - Infinity polling: polling exited
+2023-11-10 02:52:01,745 - ERROR - Break infinity polling
+2023-11-10 02:52:09,440 - INFO - Пользователь с user_id: 802693897 уже существует
+2023-11-10 02:52:31,962 - ERROR - Infinity polling: polling exited
+2023-11-10 02:52:31,963 - ERROR - Break infinity polling
+2023-11-10 02:53:37,834 - ERROR - Infinity polling: polling exited
+2023-11-10 02:53:37,834 - ERROR - Break infinity polling
+2023-11-10 02:53:59,785 - ERROR - Infinity polling: polling exited
+2023-11-10 02:53:59,785 - ERROR - Break infinity polling
+2023-11-10 02:54:21,862 - ERROR - Infinity polling exception: 802693897
+2023-11-10 02:54:21,867 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 369, in set_user_schedule
+    context_messages_schedule[message.from_user.id].append({"role": "user", "content": user_answer})
+KeyError: 802693897
+
+2023-11-10 02:55:53,684 - ERROR - Infinity polling: polling exited
+2023-11-10 02:55:53,684 - ERROR - Break infinity polling
+2023-11-10 02:56:44,214 - ERROR - Infinity polling: polling exited
+2023-11-10 02:56:44,214 - ERROR - Break infinity polling
+2023-11-10 02:57:07,247 - INFO - {
+  "schedule": [
+    {
+      "dayOfWeek": "Понедельник",
+      "time": "10:00"
+    }
+  ]
+}
+2023-11-10 02:57:26,458 - INFO - {
+  "schedule": [
+    {
+      "dayOfWeek": "Пятница",
+      "time": "15:00"
+    }
+  ]
+}
+2023-11-10 02:58:22,898 - ERROR - Infinity polling: polling exited
+2023-11-10 02:58:22,899 - ERROR - Break infinity polling
+2023-11-10 02:59:07,250 - ERROR - Infinity polling: polling exited
+2023-11-10 02:59:07,250 - ERROR - Break infinity polling
+2023-11-10 02:59:33,557 - ERROR - Infinity polling: polling exited
+2023-11-10 02:59:33,557 - ERROR - Break infinity polling
+2023-11-10 02:59:49,013 - INFO - {
+  "schedule": [
+    {
+      "dayOfWeek": "Среда",
+      "time": "10:00"
+    }
+  ]
+}
+2023-11-10 03:00:25,329 - ERROR - Infinity polling: polling exited
+2023-11-10 03:00:25,330 - ERROR - Break infinity polling
+2023-11-10 03:00:46,250 - INFO - {
+  "schedule": [
+    {
+      "dayOfWeek": "Понедельник",
+      "time": "10:00"
+    }
+  ]
+}
+2023-11-10 03:01:59,136 - ERROR - Infinity polling: polling exited
+2023-11-10 03:01:59,136 - ERROR - Break infinity polling

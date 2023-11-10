@@ -13,7 +13,7 @@ from telebot import types
 
 import config
 from database import BotDatabase
-from keyboards import markup_keyboard_accept, markup_keyboard_exercises, markup_keyboard_chill
+from keyboards import markup_keyboard_accept, markup_keyboard_exercises, markup_keyboard_chill, markup_keyboard_change_schedule, markup_keyboard_set_schedule
 
 tz = pytz.timezone('Europe/Moscow')
 openai.api_key = config.OPENAI_TOKEN
@@ -72,6 +72,13 @@ def main(message: types.Message):
         bot.register_next_step_handler(start_msg, get_info)
 
     else:
+        context_messages[message.from_user.id] = []
+        context_messages_program[message.from_user.id] = []
+        user_feedback[message.from_user.id] = []
+        context_messages_schedule[message.from_user.id] = []
+        context_messages_clear_program[message.from_user.id] = []
+        tokens[message.from_user.id] = {"prompt_1": {"input": 0, "output": 0}, "prompt_2": {"input": 0, "output": 0}}
+
         logging.info(f'Пользователь с user_id: {message.from_user.id} уже существует')
         if message.from_user.id not in user_feedback.keys():
             user_feedback[message.from_user.id] = []
@@ -464,13 +471,28 @@ def third_question(message: types.Message):
 
 
 @bot.message_handler(commands=['schedule'])
-def schedule():
-    pass
+def schedule(message: types.Message):
+    context_messages_schedule[message.from_user.id] = []
+    context_messages_schedule[message.from_user.id].append({"role": "system", "content": "Твоя задача написать расписание занятий по информации от пользователя в следующем формате: день недели: время (в 24 часовом формате, пример: 15:45 или 07:25). Каждый день недели напиши отдельной строкой. Дай только один временный слот, если пользователь даёт несколько. Пиши кратко, не задавай лишних вопросов. Общайся с пользователем на «ты». Если расписание составлено, начни своё сообщение с 'Твоё расписание'. Спроси всё ли верно."})
+
+    get_schedule = BotDatabase.get_user_schedule(message.from_user.id)
+    if len(get_schedule) == 0:
+        bot.send_message(message.chat.id, "Упс, пока что не нашел твое расписание (")
+        change = bot.send_message(message.chat.id, "Если ты хочешь установить расписание, нажимай на кнопку ниже",reply_markup=markup_keyboard_set_schedule)
+        bot.register_next_step_handler(change, edit_schedule)
+    else:
+        bot.send_message(message.chat.id, 'Твое расписание:\n\n' + '\n'.join(get_schedule).replace(',',' '))
+        change = bot.send_message(message.chat.id, "Если ты хочешь изменить расписание, нажимай на кнопку ниже", reply_markup=markup_keyboard_set_schedule)
+        bot.register_next_step_handler(change, edit_schedule)
 
 
-@bot.message_handler(commands=['statistics'])
-def statistics():
-    pass
+def edit_schedule(message: types.Message):
+    user_answer = message.text
+
+    if user_answer == 'Настроить новое расписание':
+        change = bot.send_message(message.chat.id, "Хорошо, давай я установлю тебе новое расписание, напиши пожалуйста в какие дни недели и время тебе удобно заниматься")
+        BotDatabase.drop_user_schedule(message.from_user.id)
+        bot.register_next_step_handler(change, set_user_schedule)
 
 
 @bot.message_handler(commands=['edit_prog'])

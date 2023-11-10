@@ -11,3 +11,11 @@ markup_keyboard_exercises.add(ready_btn)
 markup_keyboard_chill = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 skip = types.KeyboardButton("Пропустить отдых")
 markup_keyboard_chill.add(skip)
+
+markup_keyboard_change_schedule = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+change = types.KeyboardButton("Изменить расписание")
+markup_keyboard_change_schedule.add(change)
+
+markup_keyboard_set_schedule = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+set = types.KeyboardButton("Настроить новое расписание")
+markup_keyboard_set_schedule.add(set)
