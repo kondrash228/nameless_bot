@@ -13,7 +13,9 @@ from telebot import types
 
 import config
 from database import BotDatabase
-from keyboards import markup_keyboard_accept, markup_keyboard_exercises, markup_keyboard_chill, markup_keyboard_change_schedule, markup_keyboard_set_schedule
+from keyboards import (markup_keyboard_accept,markup_keyboard_exercises,
+                       markup_keyboard_chill, markup_keyboard_change_schedule,
+                       markup_keyboard_set_schedule, markup_keyboard_set_program)
 
 tz = pytz.timezone('Europe/Moscow')
 openai.api_key = config.OPENAI_TOKEN
@@ -31,8 +33,7 @@ if len(bot.get_my_commands()) == 0:
         telebot.types.BotCommand('/start', "Главная"),
         telebot.types.BotCommand('/start_sport', "Начать тренировку сейчас"),
         telebot.types.BotCommand('/schedule', "Запланированые тренировки"),
-        telebot.types.BotCommand('/statistics', "Достижения (статистика)"),
-        telebot.types.BotCommand('/edit_prog', "Поменять тренировочную программу"),
+        telebot.types.BotCommand('/edit_prog', "Поменять/посмотреть тренировочную программу"),
         telebot.types.BotCommand('/about', "О боте"),
     ])
 
@@ -40,6 +41,8 @@ context_messages = {}
 context_messages_program = {}
 context_messages_schedule = {}
 context_messages_clear_program = {}
+context_messages_remake_program = {}
+context_messages_remake_program_json = {}
 
 tokens = {}
 user_feedback = {}
@@ -53,7 +56,7 @@ def main(message: types.Message):
         logging.info(f'Новый пользователь с user_id: {message.from_user.id}, добавляем его в базу данных и начинаем диалог')
         BotDatabase.add_user(message.from_user.id)
 
-        start_msg = bot.send_message(message.chat.id, "Привет, я GymLessBot. Я составлю для тебя персонализированную программу тренировки дома.\nРасскажи в голосовом или напиши сообщением:\n*Как тебя зовут?\n*Сколько тебе лет?\n*Какие у тебя предпочтения по упражнениям?\n*Есть ли у тебя какой-либо спортивный инвентарь?")
+        start_msg = bot.send_message(message.chat.id, "Привет, я GymLessBot. Я составлю для тебя персонализированную программу тренировки дома.\nРасскажи в голосовом или напиши сообщением:\n*Как тебя зовут?\n*Сколько тебе лет?\n*Есть ли у тебя какой-либо спортивный инвентарь?")
 
         if message.from_user.id not in context_messages.keys():
             logging.info(f'Для пользователя user_id: {message.from_user.id} нет контекста. Создаем контекст и счетчик токенов')
@@ -250,7 +253,7 @@ def final_check_form(message: types.Message):
         tokens[message.from_user.id]['prompt_2']['output'] += int(pre_program.usage.completion_tokens)
         logging.info(f'Считаем токены для пользователя (user_id: {message.from_user.id}): {message.from_user.id}, итого prompt_2_input = {tokens[message.from_user.id]["prompt_2"]["input"]}, prompt_2_output = {tokens[message.from_user.id]["prompt_2"]["output"]}')
 
-        check = bot.send_message(message.chat.id, pre_program.choices[0].message.content,reply_markup=markup_keyboard_accept)
+        check = bot.send_message(message.chat.id, pre_program.choices[0].message.content,reply_markup=markup_keyboard_accept, parse_mode="Markdown")
         context_messages_clear_program[message.from_user.id].append({"role": "assistant", "content": pre_program.choices[0].message.content})
 
         bot.register_next_step_handler(check, check_program)
@@ -496,13 +499,127 @@ def edit_schedule(message: types.Message):
 
 
 @bot.message_handler(commands=['edit_prog'])
-def edit_prog():
-    pass
+def edit_prog(message: types.Message):
+    context_messages_remake_program[message.from_user.id] = []
+    context_messages_remake_program_json[message.from_user.id] = []
+
+    context_messages_remake_program[message.from_user.id].append({"role": "system", "content": "Ты - тренер по фитнесу, который составляет индивидуальную программу спортивных занятий дома. Не здоровайся с пользователем. Общайся с пользователем на «ты». У тебя есть анкета которую ты получаешь от пользователя. Сделай логичную программу с учётом анкеты пользователя. Рядом с каждым упражнением подпиши: количество подходов, количество повторений/времени в позиции. Подстраивай количество подходов и повторений в зависимости от уровня физической подготовки пользователя (от 1 до 10). Давай точное количество повторений/время. Помни, тренировка начинается с разминки, далее основная часть (силовая), а в конце заминка. Предлагай не более 4-5 на каждый этап тренировки. Ты должен иметь в виду все данные предоставленные в анкете. Начинай своё сообщение только с 'Твоя программа тренировки', когда отдаёшь программу полностью. Сделай предупреждение, если упражнение затрагивает физическое ограничение. После создания программы спроси у пользователя подходит ли ему программа. Если нет, то что можно изменить. При внесении изменений в программу, выводи только измененное упражнение/упражнения. Повтори программу полностью, только после одобрительного ответа пользователя. Не прощайся с пользователем. "})
+
+    program = BotDatabase.get_user_program(message.from_user.id)
+    if len(program) == 0:
+        check = bot.send_message(message.chat.id, "Не нашел твоей программы, для того чтобы создать ее жми на кнопку ниже", reply_markup=markup_keyboard_set_program)
+        bot.register_next_step_handler(check, re_call_prompt)
+    else:
+        start = '*Разминка*\n ' + '\n'.join(program[0]) + "\n"
+        mid = '*Основная часть*\n ' + '\n'.join(program[1]) + "\n"
+        end = '*Заминка*\n ' + '\n'.join(program[2])
+        ready_prog = [start, mid, end]
+        user_form = BotDatabase.get_user_form(message.from_user.id)
+
+        ready_form = {"name": user_form[0], "sex": user_form[1], "age": user_form[2], "level": user_form[3], "duration": user_form[4], "issues": user_form[5], "equipment": user_form[6], "wishes": user_form[7]}
+
+        check = bot.send_message(message.chat.id, 'Твоя программа\n\n' + '\n'.join(ready_prog), parse_mode="Markdown", reply_markup=markup_keyboard_set_program)
+
+        context_messages_remake_program[message.from_user.id].append({"role": "user", "content": str('Твоя программа\n\n' + '\n'.join(ready_prog))})
+        context_messages_remake_program[message.from_user.id].append({"role": "user", "content": str(ready_form)})
+
+        bot.register_next_step_handler(check, re_call_prompt)
+
+
+def re_call_prompt(message: types.Message):
+    user_answer = message.text
+
+    if user_answer == 'Настроить новую программу':
+        BotDatabase.drop_user_program()
+
+        change = bot.send_message(message.chat.id,"Хорошо, давай я создам тебе новую программу, напиши пожалуйста свои пожелания")
+        bot.register_next_step_handler(change, remake_prog)
+
+
+
+def remake_prog(message:types.Message):
+    user_answer = message.text
+    context_messages_remake_program[message.from_user.id].append({"role": "user", "content": user_answer})
+
+    remake_program = openai.ChatCompletion.create(
+        model=config.GPT_4_TURBO,
+        messages=context_messages_remake_program[message.from_user.id],
+        temperature=0.4
+    )
+    context_messages_remake_program_json[message.from_user.id].append({"role": "assistant", "content": remake_program.choices[0].message.content})
+    context_messages_remake_program_json[message.from_user.id].append({"role": "system","content": 'Сделай этот текст в json формат, где "training" - массив внутри которого есть массивы "Разминка" , "Основная часть", "Заминка" внутри которых есть "Упражнение 1", "Упражнение 2", "Упражнение 3" и так далее. Не давай никаких комментариев. Не меняй содержание текста.'})
+    raw_program = """
+                    **Разминка**
+                    1.Приседания без веса - 3 подхода по 15 повторений
+                    2.Бег на месте - 3 минуты
+                    3.Прыжки на месте - 3 подхода по 30 секунд
+                    4.Размахивание руками - 3 подхода по 20 раз каждой рукой
+
+                    **Основная часть**
+                    1.Отжимания - 5 подходов по 20 повторений
+                    2.Подтягивания (если есть турник) - 4 подхода по 12 повторений
+                    3.Планка - 4 подхода по 1 минуте
+                    4.Берпи - 4 подхода по 15 повторений
+
+                    **Заминка**
+                    1.Растяжка грудных мышц - 30 секунд на каждую сторону
+                    2.Растяжка бицепсов и предплечий - 30 секунд на каждую руку
+                    3.Растяжка квадрицепсов - 30 секунд на каждую ногу
+                    4.Поза ребенка - 1 минута
+
+                    """
+
+    context_messages_remake_program_json[message.from_user.id].append({"role": "user", "content": f"{raw_program}"})
+
+    jsonf_example = """
+            {
+              "training": {
+                "Разминка": [
+                  "Приседания без веса - 3 подхода по 15 повторений",
+                  "Бег на месте - 3 минуты",
+                  "Прыжки на месте - 3 подхода по 30 секунд",
+                  "Размахивание руками - 3 подхода по 20 раз каждой рукой"
+                ],
+                "Основная часть": [
+                  "Отжимания - 5 подходов по 20 повторений",
+                  "Планка - 4 подхода по 1 минуте",
+                  "Берпи - 4 подхода по 15 повторений",
+                  "Отжимания с узкой постановкой рук (для трицепсов) - 4 подхода по 15 повторений"
+                ],
+                "Заминка": [
+                  "Растяжка квадрицепсов - по 1 минуте на каждую ногу",
+                  "Растяжка грудных мышц - 2 подхода по 30 секунд",
+                  "Растяжка трицепсов - по 30 секунд на каждую руку",
+                  "Дыхательные упражнения - 3 минуты"
+                ]
+              }
+            }
+            """
+    context_messages_remake_program_json[message.from_user.id].append({"role": "assistant", "content": f'{jsonf_example}'})
+
+    get_program = openai.ChatCompletion.create(  # prompt 2.5
+        model=config.GPT_3_5,
+        messages=context_messages_remake_program_json[message.from_user.id],  # берем только программу
+        temperature=0
+    )
+
+    logging.info(f'json prog: {get_program.choices[0].message.content}')
+
+    json_program_ready = json.loads(get_program.choices[0].message.content)
+    BotDatabase.insert_user_program(message.from_user.id, json_program_ready)
+
+    bot.send_message(message.chat.id, "Я сохранил твою программу!")
 
 
 @bot.message_handler(commands=['about'])
 def about(message: types.Message):
     bot.send_message(message.chat.id, "Привет, я GymLessBot. Я составлю для тебя персонализированную программу тренировки дома.\nЯ учитываю различные факторы при составлении программы.\nНапример, я смотрю на твой уровень физической подготовки и пожелания по упражнениям. Также я подстрою программу, если у тебя есть какие либо травмы.")
+
+
+@bot.message_handler()
+def all_messages(message: types.Message):
+    if message.content_type == 'voice':
+        bot.send_message(message.chat.id, "Извини, я пока не могу распознать твои слова, напиши мне текстом")
 
 
 bot.infinity_polling()

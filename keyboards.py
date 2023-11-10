@@ -19,3 +19,7 @@ markup_keyboard_change_schedule.add(change)
 markup_keyboard_set_schedule = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
 set = types.KeyboardButton("Настроить новое расписание")
 markup_keyboard_set_schedule.add(set)
+
+markup_keyboard_set_program = types.ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+prog = types.KeyboardButton("Настроить новую программу")
+markup_keyboard_set_program.add(prog)

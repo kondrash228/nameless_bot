@@ -83,6 +83,21 @@ class BotDatabase:
             self.cur.execute(f'ALTER TABLE users DROP COLUMN {dayweek.split(",")[0]}')
         self.conn.commit()
 
+    def drop_user_program(self):
+        self.cur.execute(f'ALTER TABLE users DROP COLUMN `Разминка`')
+        self.cur.execute(f'ALTER TABLE users DROP COLUMN `Основная часть`')
+        self.cur.execute(f'ALTER TABLE users DROP COLUMN `Заминка`')
+        self.conn.commit()
+
+    def get_user_form(self, user_id):
+        fields = ["name", "sex", "age", "level", "duration", "issues", "equipment", "wishes"]
+        form = []
+        for field in fields:
+            res = self.cur.execute(f"SELECT `{field}` FROM `users` WHERE `user_id` = ?", (user_id,))
+            form.append(str(res.fetchone()[0]))
+
+        return form
+
     def close_conn(self):
         self.conn.close()
 
@@ -106,7 +121,31 @@ class BotDatabase:
 #
 # import json
 #
-# n = json.loads(jsonf)
+# m = """
+# {
+#               "training": {
+#                 "Разминка": [
+#                   "Приседания без веса - 3 подхода по 15 повторений",
+#                   "Бег на месте - 3 минуты",
+#                   "Прыжки на месте - 3 подхода по 30 секунд",
+#                   "Размахивание руками - 3 подхода по 20 раз каждой рукой"
+#                 ],
+#                 "Основная часть": [
+#                   "Отжимания - 5 подходов по 20 повторений",
+#                   "Планка - 4 подхода по 1 минуте",
+#                   "Берпи - 4 подхода по 15 повторений",
+#                   "Отжимания с узкой постановкой рук (для трицепсов) - 4 подхода по 15 повторений"
+#                 ],
+#                 "Заминка": [
+#                   "Растяжка квадрицепсов - по 1 минуте на каждую ногу",
+#                   "Растяжка грудных мышц - 2 подхода по 30 секунд",
+#                   "Растяжка трицепсов - по 30 секунд на каждую руку",
+#                   "Дыхательные упражнения - 3 минуты"
+#                 ]
+#               }
+#             }
+#             """
 #
 #
-# BotDatabase.insert_schedule(802693897, n)
+# n = json.loads(m)
+# BotDatabase.insert_user_program(802693897, n)

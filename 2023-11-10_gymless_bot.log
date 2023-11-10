@@ -1033,3 +1033,477 @@ KeyError: 802693897
 }
 2023-11-10 03:01:59,136 - ERROR - Infinity polling: polling exited
 2023-11-10 03:01:59,136 - ERROR - Break infinity polling
+2023-11-10 03:05:18,913 - ERROR - Infinity polling: polling exited
+2023-11-10 03:05:18,914 - ERROR - Break infinity polling
+2023-11-10 03:05:37,855 - ERROR - Infinity polling: polling exited
+2023-11-10 03:05:37,855 - ERROR - Break infinity polling
+2023-11-10 03:15:03,417 - ERROR - Infinity polling: polling exited
+2023-11-10 03:15:03,418 - ERROR - Break infinity polling
+2023-11-10 03:15:12,371 - ERROR - Infinity polling: polling exited
+2023-11-10 03:15:12,371 - ERROR - Break infinity polling
+2023-11-10 03:15:27,490 - ERROR - Infinity polling: polling exited
+2023-11-10 03:15:27,491 - ERROR - Break infinity polling
+2023-11-10 03:16:11,648 - ERROR - Infinity polling: polling exited
+2023-11-10 03:16:11,648 - ERROR - Break infinity polling
+2023-11-10 03:16:19,926 - ERROR - Infinity polling: polling exited
+2023-11-10 03:16:19,926 - ERROR - Break infinity polling
+2023-11-10 03:16:28,880 - ERROR - Infinity polling: polling exited
+2023-11-10 03:16:28,880 - ERROR - Break infinity polling
+2023-11-10 03:16:38,450 - ERROR - Infinity polling: polling exited
+2023-11-10 03:16:38,450 - ERROR - Break infinity polling
+2023-11-10 03:16:47,956 - ERROR - Infinity polling: polling exited
+2023-11-10 03:16:47,956 - ERROR - Break infinity polling
+2023-11-10 03:17:19,998 - ERROR - Infinity polling: polling exited
+2023-11-10 03:17:19,999 - ERROR - Break infinity polling
+2023-11-10 03:18:42,940 - ERROR - Infinity polling: polling exited
+2023-11-10 03:18:42,940 - ERROR - Break infinity polling
+2023-11-10 03:19:12,759 - ERROR - Infinity polling: polling exited
+2023-11-10 03:19:12,759 - ERROR - Break infinity polling
+2023-11-10 03:21:08,874 - ERROR - Infinity polling: polling exited
+2023-11-10 03:21:08,875 - ERROR - Break infinity polling
+2023-11-10 03:21:11,377 - INFO - [['Ходьба на месте - 2 минуты', ' Вращение руками - 1 минута (30 секунд вперед', ' 30 секунд назад)', ' Наклоны туловища в стороны - 2 подхода по 10 повторений', ' Легкие приседания - 2 подхода по 8 повторений'], ['Отжимания от пола - 3 подхода по 10 повторений', ' Подтягивания на турнике - 3 подхода по 6 повторений', ' Планка - 3 подхода по 30 секунд', ' Берпи - 3 подхода по 8 повторений'], ['Растяжка грудных мышц - 2 подхода по 30 секунд', ' Растяжка бицепсов и предплечий - 2 подхода по 30 секунд на каждую руку', ' Растяжка квадрицепсов стоя - 2 подхода по 30 секунд на каждую ногу']]
+2023-11-10 03:21:26,330 - ERROR - Infinity polling: polling exited
+2023-11-10 03:21:26,331 - ERROR - Break infinity polling
+2023-11-10 03:22:11,709 - ERROR - Infinity polling: polling exited
+2023-11-10 03:22:11,709 - ERROR - Break infinity polling
+2023-11-10 03:22:17,084 - ERROR - Infinity polling: polling exited
+2023-11-10 03:22:17,084 - ERROR - Break infinity polling
+2023-11-10 03:28:21,875 - ERROR - Infinity polling: polling exited
+2023-11-10 03:28:21,875 - ERROR - Break infinity polling
+2023-11-10 03:28:46,721 - ERROR - Infinity polling: polling exited
+2023-11-10 03:28:46,721 - ERROR - Break infinity polling
+2023-11-10 03:29:10,635 - ERROR - Infinity polling: polling exited
+2023-11-10 03:29:10,636 - ERROR - Break infinity polling
+2023-11-10 03:29:20,209 - ERROR - Infinity polling: polling exited
+2023-11-10 03:29:20,210 - ERROR - Break infinity polling
+2023-11-10 03:29:45,661 - ERROR - Infinity polling: polling exited
+2023-11-10 03:29:45,661 - ERROR - Break infinity polling
+2023-11-10 03:29:58,570 - ERROR - Infinity polling: polling exited
+2023-11-10 03:29:58,570 - ERROR - Break infinity polling
+2023-11-10 03:30:42,701 - ERROR - Infinity polling: polling exited
+2023-11-10 03:30:42,701 - ERROR - Break infinity polling
+2023-11-10 03:32:01,680 - ERROR - Infinity polling: polling exited
+2023-11-10 03:32:01,681 - ERROR - Break infinity polling
+2023-11-10 03:32:05,559 - ERROR - Infinity polling: polling exited
+2023-11-10 03:32:05,560 - ERROR - Break infinity polling
+2023-11-10 03:32:24,830 - ERROR - Infinity polling: polling exited
+2023-11-10 03:32:24,831 - ERROR - Break infinity polling
+2023-11-10 03:32:46,681 - ERROR - Infinity polling: polling exited
+2023-11-10 03:32:46,681 - ERROR - Break infinity polling
+2023-11-10 03:33:39,929 - ERROR - Infinity polling: polling exited
+2023-11-10 03:33:39,929 - ERROR - Break infinity polling
+2023-11-10 03:33:50,940 - ERROR - Infinity polling: polling exited
+2023-11-10 03:33:50,940 - ERROR - Break infinity polling
+2023-11-10 03:33:57,094 - ERROR - Infinity polling: polling exited
+2023-11-10 03:33:57,094 - ERROR - Break infinity polling
+2023-11-10 03:34:08,269 - ERROR - Infinity polling: polling exited
+2023-11-10 03:34:08,269 - ERROR - Break infinity polling
+2023-11-10 03:34:18,996 - ERROR - Infinity polling: polling exited
+2023-11-10 03:34:18,996 - ERROR - Break infinity polling
+2023-11-10 03:38:01,919 - ERROR - Infinity polling: polling exited
+2023-11-10 03:38:01,919 - ERROR - Break infinity polling
+2023-11-10 03:38:25,201 - ERROR - Infinity polling: polling exited
+2023-11-10 03:38:25,202 - ERROR - Break infinity polling
+2023-11-10 03:38:47,624 - ERROR - Infinity polling: polling exited
+2023-11-10 03:38:47,624 - ERROR - Break infinity polling
+2023-11-10 03:38:54,166 - ERROR - Infinity polling: polling exited
+2023-11-10 03:38:54,166 - ERROR - Break infinity polling
+2023-11-10 03:39:31,379 - ERROR - Infinity polling: polling exited
+2023-11-10 03:39:31,379 - ERROR - Break infinity polling
+2023-11-10 03:39:58,273 - ERROR - Infinity polling: polling exited
+2023-11-10 03:39:58,273 - ERROR - Break infinity polling
+2023-11-10 03:40:25,774 - ERROR - Infinity polling: polling exited
+2023-11-10 03:40:25,774 - ERROR - Break infinity polling
+2023-11-10 03:40:36,735 - ERROR - Infinity polling: polling exited
+2023-11-10 03:40:36,735 - ERROR - Break infinity polling
+2023-11-10 03:41:40,031 - ERROR - Infinity polling: polling exited
+2023-11-10 03:41:40,031 - ERROR - Break infinity polling
+2023-11-10 03:41:57,852 - ERROR - Infinity polling: polling exited
+2023-11-10 03:41:57,852 - ERROR - Break infinity polling
+2023-11-10 03:42:08,829 - ERROR - Infinity polling: polling exited
+2023-11-10 03:42:08,830 - ERROR - Break infinity polling
+2023-11-10 03:42:59,618 - ERROR - Infinity polling: polling exited
+2023-11-10 03:42:59,618 - ERROR - Break infinity polling
+2023-11-10 03:43:32,710 - ERROR - Infinity polling: polling exited
+2023-11-10 03:43:32,710 - ERROR - Break infinity polling
+2023-11-10 03:44:48,685 - ERROR - Infinity polling: polling exited
+2023-11-10 03:44:48,686 - ERROR - Break infinity polling
+2023-11-10 03:45:07,379 - ERROR - Infinity polling: polling exited
+2023-11-10 03:45:07,379 - ERROR - Break infinity polling
+2023-11-10 03:45:26,721 - ERROR - Infinity polling: polling exited
+2023-11-10 03:45:26,721 - ERROR - Break infinity polling
+2023-11-10 03:45:35,352 - ERROR - Infinity polling: polling exited
+2023-11-10 03:45:35,352 - ERROR - Break infinity polling
+2023-11-10 03:45:49,532 - ERROR - Infinity polling: polling exited
+2023-11-10 03:45:49,532 - ERROR - Break infinity polling
+2023-11-10 03:46:05,039 - ERROR - Infinity polling: polling exited
+2023-11-10 03:46:05,039 - ERROR - Break infinity polling
+2023-11-10 03:46:07,226 - ERROR - Infinity polling: polling exited
+2023-11-10 03:46:07,227 - ERROR - Break infinity polling
+2023-11-10 03:47:12,403 - ERROR - Infinity polling: polling exited
+2023-11-10 03:47:12,403 - ERROR - Break infinity polling
+2023-11-10 03:47:47,062 - ERROR - Infinity polling: polling exited
+2023-11-10 03:47:47,062 - ERROR - Break infinity polling
+2023-11-10 03:48:03,609 - ERROR - Infinity polling: polling exited
+2023-11-10 03:48:03,609 - ERROR - Break infinity polling
+2023-11-10 03:48:24,690 - ERROR - Infinity polling: polling exited
+2023-11-10 03:48:24,691 - ERROR - Break infinity polling
+2023-11-10 04:03:01,886 - ERROR - Infinity polling: polling exited
+2023-11-10 04:03:01,887 - ERROR - Break infinity polling
+2023-11-10 04:03:30,628 - ERROR - Infinity polling: polling exited
+2023-11-10 04:03:30,628 - ERROR - Break infinity polling
+2023-11-10 04:09:16,517 - ERROR - Infinity polling: polling exited
+2023-11-10 04:09:16,518 - ERROR - Break infinity polling
+2023-11-10 04:18:20,485 - INFO - Переходим к финальной проверке анкеты пользователя. Ответ пользователя на форму: Да
+2023-11-10 04:18:20,488 - INFO - Пользователь (user_id: 802693897) подтвердил корректность анкеты, начианем составлять для него программу
+2023-11-10 04:18:20,574 - INFO - Перед составлением программы, получаем заполненую json форму пользователя без лишнего текста, для того, чтобы передать ее в промпт 2
+2023-11-10 04:18:20,578 - ERROR - Infinity polling exception: 802693897
+2023-11-10 04:18:20,581 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 216, in final_check_form
+    context_messages[message.from_user.id].append({"role": "assistant", "content": 'Переделай этот текст в json формат, где "profile" - массив внутри которого есть "name", "sex", "age","level","duration","issues","equipment", "wishes" . Не давай никаких комментариев.'})
+KeyError: 802693897
+
+2023-11-10 04:18:46,432 - ERROR - Infinity polling: polling exited
+2023-11-10 04:18:46,432 - ERROR - Break infinity polling
+2023-11-10 04:18:54,360 - INFO - Переходим к финальной проверке анкеты пользователя. Ответ пользователя на форму: Да
+2023-11-10 04:18:54,360 - INFO - Пользователь (user_id: 802693897) подтвердил корректность анкеты, начианем составлять для него программу
+2023-11-10 04:18:54,437 - INFO - Перед составлением программы, получаем заполненую json форму пользователя без лишнего текста, для того, чтобы передать ее в промпт 2
+2023-11-10 04:18:57,175 - INFO - json form {'profile': {'name': 'John', 'sex': 'male', 'age': 30, 'level': 'advanced', 'duration': '1 hour', 'issues': ['back pain', 'knee injury'], 'equipment': ['dumbbells', 'resistance bands'], 'wishes': ['improve flexibility', 'build muscle']}}
+2023-11-10 04:18:57,178 - ERROR - Infinity polling exception: Error binding parameter 0 - probably unsupported type.
+2023-11-10 04:18:57,180 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 228, in final_check_form
+    BotDatabase.insert_user_form(message.from_user.id, json_form)
+  File "/Users/ekondrashov/PycharmProjects/openai/database.py", line 49, in insert_user_form
+    self.cur.execute(f"UPDATE users SET `{key}` = ? WHERE user_id = ?", (val, user_id))
+sqlite3.InterfaceError: Error binding parameter 0 - probably unsupported type.
+
+2023-11-10 04:23:57,998 - ERROR - Infinity polling: polling exited
+2023-11-10 04:23:57,998 - ERROR - Break infinity polling
+2023-11-10 04:27:52,799 - ERROR - Infinity polling exception: near "часть": syntax error
+2023-11-10 04:27:52,802 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 532, in re_call_prompt
+    BotDatabase.drop_user_program()
+  File "/Users/ekondrashov/PycharmProjects/openai/database.py", line 89, in drop_user_program
+    self.cur.execute(f'ALTER TABLE users DROP COLUMN {state}')
+sqlite3.OperationalError: near "часть": syntax error
+
+2023-11-10 04:29:14,997 - ERROR - Infinity polling: polling exited
+2023-11-10 04:29:14,998 - ERROR - Break infinity polling
+2023-11-10 04:29:19,298 - ERROR - Infinity polling exception: no such column: Разминка
+2023-11-10 04:29:19,299 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6801, in _run_middlewares_and_handler
+    result = handler['function'](message)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 507, in edit_prog
+    program = BotDatabase.get_user_program(message.from_user.id)
+  File "/Users/ekondrashov/PycharmProjects/openai/database.py", line 65, in get_user_program
+    result = self.cur.execute(f"SELECT `{state}` FROM `users` WHERE `user_id` = ?", (user_id,))
+sqlite3.OperationalError: no such column: Разминка
+
+2023-11-10 04:31:06,466 - ERROR - Infinity polling: polling exited
+2023-11-10 04:31:06,466 - ERROR - Break infinity polling
+2023-11-10 04:31:10,112 - ERROR - Infinity polling exception: near "часть": syntax error
+2023-11-10 04:31:10,115 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 532, in re_call_prompt
+    BotDatabase.drop_user_program()
+  File "/Users/ekondrashov/PycharmProjects/openai/database.py", line 89, in drop_user_program
+    self.cur.execute(f'ALTER TABLE users DROP COLUMN {state}')
+sqlite3.OperationalError: near "часть": syntax error
+
+2023-11-10 04:32:02,410 - ERROR - Infinity polling: polling exited
+2023-11-10 04:32:02,410 - ERROR - Break infinity polling
+2023-11-10 04:32:07,614 - ERROR - Infinity polling exception: no such column: Разминка
+2023-11-10 04:32:07,615 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6801, in _run_middlewares_and_handler
+    result = handler['function'](message)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 507, in edit_prog
+    program = BotDatabase.get_user_program(message.from_user.id)
+  File "/Users/ekondrashov/PycharmProjects/openai/database.py", line 65, in get_user_program
+    result = self.cur.execute(f"SELECT `{state}` FROM `users` WHERE `user_id` = ?", (user_id,))
+sqlite3.OperationalError: no such column: Разминка
+
+2023-11-10 04:32:31,663 - ERROR - Infinity polling: polling exited
+2023-11-10 04:32:31,663 - ERROR - Break infinity polling
+2023-11-10 04:33:42,480 - ERROR - Infinity polling: polling exited
+2023-11-10 04:33:42,480 - ERROR - Break infinity polling
+2023-11-10 04:34:37,584 - INFO - error_code=None error_message='{\'802693897\': [{\'role\': \'system\', \'content\': "Ты - тренер по фитнесу, который составляет индивидуальную программу спортивных занятий дома. Не здоровайся с пользователем. Общайся с пользователем на «ты». У тебя есть анкета которую ты получаешь от пользователя. Сделай логичную программу с учётом анкеты пользователя. Рядом с каждым упражнением подпиши: количество подходов, количество повторений/времени в позиции. Подстраивай количество подходов и повторений в зависимости от уровня физической подготовки пользователя (от 1 до 10). Давай точное количество повторений/время. Помни, тренировка начинается с разминки, далее основная часть (силовая), а в конце заминка. Предлагай не более 4-5 на каждый этап тренировки. Ты должен иметь в виду все данные предоставленные в анкете. Начинай своё сообщение только с \'Твоя программа тренировки\', когда отдаёшь программу полностью. Сделай предупреждение, если упражнение затрагивает физическое ограничение. После создания программы спроси у пользователя подходит ли ему программа. Если нет, то что можно изменить. При внесении изменений в программу, выводи только измененное упражнение/упражнения. Повтори программу полностью, только после одобрительного ответа пользователя. Не прощайся с пользователем. "}, {\'role\': \'user\', \'content\': \'Твоя программа\\n\\n*Разминка*\\n Приседания без веса - 3 подхода по 15 повторений\\n Бег на месте - 3 минуты\\n Прыжки на месте - 3 подхода по 30 секунд\\n Размахивание руками - 3 подхода по 20 раз каждой рукой\\n\\n*Основная часть*\\n Отжимания - 5 подходов по 20 повторений\\n Планка - 4 подхода по 1 минуте\\n Берпи - 4 подхода по 15 повторений\\n Отжимания с узкой постановкой рук (для трицепсов) - 4 подхода по 15 повторений\\n\\n*Заминка*\\n Растяжка квадрицепсов - по 1 минуте на каждую ногу\\n Растяжка грудных мышц - 2 подхода по 30 секунд\\n Растяжка трицепсов - по 30 секунд на каждую руку\\n Дыхательные упражнения - 3 минуты\'}, {\'role\': \'user\', \'content\': {\'name\': \'Егор\', \'sex\': \'мужской\', \'age\': \'17\', \'level\': \'5\', \'duration\': \'50 минут\', \'issues\': \'болит левое колено\', \'equipment\': \'турник\', \'wishes\': \'отжимания\'}}, {\'role\': \'user\', \'content\': \'Я хочу больше упор на ноги\'}]} is not of type \'array\' - \'messages\'' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-11-10 04:34:37,589 - ERROR - Infinity polling exception: {'802693897': [{'role': 'system', 'content': "Ты - тренер по фитнесу, который составляет индивидуальную программу спортивных занятий дома. Не здоровайся с пользователем. Общайся с пользователем на «ты». У тебя есть анкета которую ты получаешь от пользователя. Сделай логичную программу с учётом анкеты пользователя. Рядом с каждым упражнением подпиши: количество подходов, количество повторений/времени в позиции. Подстраивай количество подходов и повторений в зависимости от уровня физической подготовки пользователя (от 1 до 10). Давай точное количество повторений/время. Помни, тренировка начинается с разминки, далее основная часть (силовая), а в конце заминка. Предлагай не более 4-5 на каждый этап тренировки. Ты должен иметь в виду все данные предоставленные в анкете. Начинай своё сообщение только с 'Твоя программа тренировки', когда отдаёшь программу полностью. Сделай предупреждение, если упражнение затрагивает физическое ограничение. После создания программы спроси у пользователя подходит ли ему программа. Если нет, то что можно изменить. При внесении изменений в программу, выводи только измененное упражнение/упражнения. Повтори программу полностью, только после одобрительного ответа пользователя. Не прощайся с пользователем. "}, {'role': 'user', 'content': 'Твоя программа\n\n*Разминка*\n Приседания без веса - 3 подхода по 15 повторений\n Бег на месте - 3 минуты\n Прыжки на месте - 3 подхода по 30 секунд\n Размахивание руками - 3 подхода по 20 раз каждой рукой\n\n*Основная часть*\n Отжимания - 5 подходов по 20 повторений\n Планка - 4 подхода по 1 минуте\n Берпи - 4 подхода по 15 повторений\n Отжимания с узкой постановкой рук (для трицепсов) - 4 подхода по 15 повторений\n\n*Заминка*\n Растяжка квадрицепсов - по 1 минуте на каждую ногу\n Растяжка грудных мышц - 2 подхода по 30 секунд\n Растяжка трицепсов - по 30 секунд на каждую руку\n Дыхательные упражнения - 3 минуты'}, {'role': 'user', 'content': {'name': 'Егор', 'sex': 'мужской', 'age': '17', 'level': '5', 'duration': '50 минут', 'issues': 'болит левое колено', 'equipment': 'турник', 'wishes': 'отжимания'}}, {'role': 'user', 'content': 'Я хочу больше упор на ноги'}]} is not of type 'array' - 'messages'
+2023-11-10 04:34:37,591 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 543, in remake_prog
+    remake_program = openai.ChatCompletion.create(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 155, in create
+    response, _, api_key = requestor.request(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 299, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 710, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 775, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.InvalidRequestError: {'802693897': [{'role': 'system', 'content': "Ты - тренер по фитнесу, который составляет индивидуальную программу спортивных занятий дома. Не здоровайся с пользователем. Общайся с пользователем на «ты». У тебя есть анкета которую ты получаешь от пользователя. Сделай логичную программу с учётом анкеты пользователя. Рядом с каждым упражнением подпиши: количество подходов, количество повторений/времени в позиции. Подстраивай количество подходов и повторений в зависимости от уровня физической подготовки пользователя (от 1 до 10). Давай точное количество повторений/время. Помни, тренировка начинается с разминки, далее основная часть (силовая), а в конце заминка. Предлагай не более 4-5 на каждый этап тренировки. Ты должен иметь в виду все данные предоставленные в анкете. Начинай своё сообщение только с 'Твоя программа тренировки', когда отдаёшь программу полностью. Сделай предупреждение, если упражнение затрагивает физическое ограничение. После создания программы спроси у пользователя подходит ли ему программа. Если нет, то что можно изменить. При внесении изменений в программу, выводи только измененное упражнение/упражнения. Повтори программу полностью, только после одобрительного ответа пользователя. Не прощайся с пользователем. "}, {'role': 'user', 'content': 'Твоя программа\n\n*Разминка*\n Приседания без веса - 3 подхода по 15 повторений\n Бег на месте - 3 минуты\n Прыжки на месте - 3 подхода по 30 секунд\n Размахивание руками - 3 подхода по 20 раз каждой рукой\n\n*Основная часть*\n Отжимания - 5 подходов по 20 повторений\n Планка - 4 подхода по 1 минуте\n Берпи - 4 подхода по 15 повторений\n Отжимания с узкой постановкой рук (для трицепсов) - 4 подхода по 15 повторений\n\n*Заминка*\n Растяжка квадрицепсов - по 1 минуте на каждую ногу\n Растяжка грудных мышц - 2 подхода по 30 секунд\n Растяжка трицепсов - по 30 секунд на каждую руку\n Дыхательные упражнения - 3 минуты'}, {'role': 'user', 'content': {'name': 'Егор', 'sex': 'мужской', 'age': '17', 'level': '5', 'duration': '50 минут', 'issues': 'болит левое колено', 'equipment': 'турник', 'wishes': 'отжимания'}}, {'role': 'user', 'content': 'Я хочу больше упор на ноги'}]} is not of type 'array' - 'messages'
+
+2023-11-10 04:35:00,048 - ERROR - Infinity polling: polling exited
+2023-11-10 04:35:00,048 - ERROR - Break infinity polling
+2023-11-10 04:35:03,223 - ERROR - Infinity polling exception: no such column: Разминка
+2023-11-10 04:35:03,223 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 6801, in _run_middlewares_and_handler
+    result = handler['function'](message)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 507, in edit_prog
+    program = BotDatabase.get_user_program(message.from_user.id)
+  File "/Users/ekondrashov/PycharmProjects/openai/database.py", line 65, in get_user_program
+    result = self.cur.execute(f"SELECT `{state}` FROM `users` WHERE `user_id` = ?", (user_id,))
+sqlite3.OperationalError: no such column: Разминка
+
+2023-11-10 04:35:07,465 - ERROR - Infinity polling: polling exited
+2023-11-10 04:35:07,465 - ERROR - Break infinity polling
+2023-11-10 04:35:42,061 - INFO - error_code=None error_message="'$.messages[2].content' is invalid. Please check the API reference: https://platform.openai.com/docs/api-reference." error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-11-10 04:35:42,067 - ERROR - Infinity polling exception: '$.messages[2].content' is invalid. Please check the API reference: https://platform.openai.com/docs/api-reference.
+2023-11-10 04:35:42,070 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 543, in remake_prog
+    remake_program = openai.ChatCompletion.create(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 155, in create
+    response, _, api_key = requestor.request(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 299, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 710, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 775, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.InvalidRequestError: '$.messages[2].content' is invalid. Please check the API reference: https://platform.openai.com/docs/api-reference.
+
+2023-11-10 04:36:46,945 - ERROR - Infinity polling: polling exited
+2023-11-10 04:36:46,947 - ERROR - Break infinity polling
+2023-11-10 04:36:50,232 - ERROR - Infinity polling: polling exited
+2023-11-10 04:36:50,232 - ERROR - Break infinity polling
+2023-11-10 04:37:11,498 - INFO - error_code=None error_message="'$.messages[2].content' is invalid. Please check the API reference: https://platform.openai.com/docs/api-reference." error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-11-10 04:37:11,503 - ERROR - Infinity polling exception: '$.messages[2].content' is invalid. Please check the API reference: https://platform.openai.com/docs/api-reference.
+2023-11-10 04:37:11,506 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 543, in remake_prog
+    remake_program = openai.ChatCompletion.create(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 155, in create
+    response, _, api_key = requestor.request(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 299, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 710, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 775, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.InvalidRequestError: '$.messages[2].content' is invalid. Please check the API reference: https://platform.openai.com/docs/api-reference.
+
+2023-11-10 04:37:51,421 - ERROR - Infinity polling: polling exited
+2023-11-10 04:37:51,422 - ERROR - Break infinity polling
+2023-11-10 04:38:40,809 - INFO - error_code=None error_message='Unrecognized request argument supplied: tempreture' error_param=None error_type=invalid_request_error message='OpenAI API error received' stream_error=False
+2023-11-10 04:38:40,814 - ERROR - Infinity polling exception: Unrecognized request argument supplied: tempreture
+2023-11-10 04:38:40,817 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 543, in remake_prog
+    remake_program = openai.ChatCompletion.create(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_resources/chat_completion.py", line 25, in create
+    return super().create(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_resources/abstract/engine_api_resource.py", line 155, in create
+    response, _, api_key = requestor.request(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 299, in request
+    resp, got_stream = self._interpret_response(result, stream)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 710, in _interpret_response
+    self._interpret_response_line(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/openai/api_requestor.py", line 775, in _interpret_response_line
+    raise self.handle_error_response(
+openai.error.InvalidRequestError: Unrecognized request argument supplied: tempreture
+
+2023-11-10 04:38:57,124 - ERROR - Infinity polling: polling exited
+2023-11-10 04:38:57,124 - ERROR - Break infinity polling
+2023-11-10 04:38:58,863 - ERROR - Infinity polling: polling exited
+2023-11-10 04:38:58,863 - ERROR - Break infinity polling
+2023-11-10 04:39:37,313 - ERROR - Infinity polling exception: 802693897
+2023-11-10 04:39:37,316 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1074, in __threaded_polling
+    self.worker_pool.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 147, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/main.py", line 548, in remake_prog
+    context_messages_remake_program_json[message.from_user.id].append({"role": "assistant", "content": remake_program.choices[0].message.content})
+KeyError: 802693897
+
+2023-11-10 04:40:12,289 - ERROR - Infinity polling: polling exited
+2023-11-10 04:40:12,289 - ERROR - Break infinity polling
+2023-11-10 04:41:02,516 - INFO - json prog: {
+  "training": {
+    "Разминка": [
+      "Ходьба на месте: 3 минуты",
+      "Размахивание руками в стороны и вперед-назад: 3 подхода по 15 раз каждым направлением",
+      "Круговые движения плечами: 2 подхода по 10 раз в каждую сторону",
+      "Растяжка запястьй: по 30 секунд на каждую руку"
+    ],
+    "Основная часть": [
+      "Отжимания от пола: 4 подхода по 12 повторений",
+      "Подтягивания на турнике (широким хватом): 4 подхода по 8 повторений",
+      "Отжимания от стены (для снижения нагрузки на колено): 4 подхода по 15 повторений",
+      "Планка на предплечьях: 3 подхода по 45 секунд",
+      "Французский жим лежа (можно использовать подручные предметы, например, бутылку с водой): 4 подхода по 15 повторений",
+      "Подтягивания на турнике (обратным хватом): 3 подхода по 6 повторений"
+    ],
+    "Заминка": [
+      "Растяжка бицепсов: по 30 секунд на каждую руку",
+      "Растяжка трицепсов: по 30 секунд на каждую руку",
+      "Растяжка предплечий: по 30 секунд на каждую руку",
+      "Дыхательные упражнения: 3 минуты"
+    ]
+  }
+}
+2023-11-10 04:41:32,932 - ERROR - Infinity polling: polling exited
+2023-11-10 04:41:32,932 - ERROR - Break infinity polling
