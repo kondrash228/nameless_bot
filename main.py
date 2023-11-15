@@ -113,9 +113,9 @@ def get_info(message: types.Message):
         context_messages[message.from_user.id].append({"role": "user", "content": transcripted_text})
 
         form_completion = openai.ChatCompletion.create(
-            model=config.GPT_3_5,
+            model=config.GPT_4_TURBO,
             messages=context_messages[message.from_user.id],
-            temperature=0.3
+            temperature=0.8
         )
         logging.info(f'Получили ответ от GPT. Ответ: {form_completion.choices[0].message.content}')
 
@@ -148,9 +148,9 @@ def get_info(message: types.Message):
         context_messages[message.from_user.id].append({"role": "user", "content": str(text_from_user)})
 
         form_completion = openai.ChatCompletion.create(
-            model=config.GPT_3_5,
+            model=config.GPT_4_TURBO,
             messages=context_messages[message.from_user.id],
-            temperature=0.3
+            temperature=0.8
         )
 
         logging.info(f'Получили ответ GPT. Ответ: {form_completion.choices[0].message.content}')
@@ -182,9 +182,9 @@ def check_form(message: types.Message):
     context_messages[message.from_user.id].append({"role": "user", "content": str(user_answer)})
 
     get_form = openai.ChatCompletion.create(
-        model=config.GPT_3_5,
+        model=config.GPT_4_TURBO,
         messages=context_messages[message.from_user.id],
-        temperature=0.3
+        temperature=0.8
     )
     logging.info(f'Ответ от GPT получен. Ответ: {get_form.choices[0].message.content}')
 
@@ -217,7 +217,7 @@ def final_check_form(message: types.Message):
 
         context_messages[message.from_user.id].append({"role": "assistant", "content": 'Переделай этот текст в json формат, где "profile" - массив внутри которого есть "name", "sex", "age","level","duration","issues","equipment", "wishes" . Не давай никаких комментариев.'})
 
-        get_ready_form = openai.ChatCompletion.create(
+        get_ready_form = openai.ChatCompletion.create( #1.5
             model=config.GPT_3_5,
             messages=context_messages[message.from_user.id],
             temperature=0
@@ -266,7 +266,7 @@ def final_check_form(message: types.Message):
         edit_form = openai.ChatCompletion.create(
             model=config.GPT_4_TURBO,
             messages=context_messages[message.from_user.id],
-            temperature=0.3
+            temperature=0.4
         )
 
         tokens[message.from_user.id]['prompt_1']['input'] += int(edit_form.usage.prompt_tokens)
@@ -545,7 +545,6 @@ def re_call_prompt(message: types.Message):
 
         change = bot.send_message(message.chat.id,"Хорошо, давай я создам тебе новую программу, напиши пожалуйста свои пожелания")
         bot.register_next_step_handler(change, remake_prog)
-
 
 
 def remake_prog(message:types.Message):

@@ -3059,3 +3059,326 @@ AttributeError: 'NoneType' object has no attribute 'split'
 2023-11-10 10:54:28,551 - INFO - У бота нет настроенных команд, устанавливаем их
 2023-11-10 10:54:34,225 - ERROR - Infinity polling: polling exited
 2023-11-10 10:54:34,225 - ERROR - Break infinity polling
+2023-11-10 16:48:54,519 - INFO - У бота нет настроенных команд, устанавливаем их
+2023-11-10 16:49:50,996 - INFO - Новый пользователь с user_id: 940032081, добавляем его в базу данных и начинаем диалог
+2023-11-10 16:49:51,401 - INFO - Для пользователя user_id: 940032081 нет контекста. Создаем контекст и счетчик токенов
+2023-11-10 16:49:51,402 - INFO - Задаем system на промпт 1
+2023-11-10 16:50:01,230 - INFO - Пользователь отправил голосовое сообщение. Вызываем whisper и конвертируем в текст
+2023-11-10 16:50:01,632 - INFO - Получили голосовое сообщение от пользователя (user_id: 940032081),  file_info: {'file_id': 'AwACAgIAAxkBAAIS_mVONQmxWpESmPopvVa04G2YaVDBAALyOAACj6dwSjOYwpoUuT6YMwQ', 'file_unique_id': 'AgAD8jgAAo-ncEo', 'file_size': 27426, 'file_path': 'voice/file_142.oga'}, передаем полученный файл в whisper
+2023-11-10 16:50:01,634 - INFO - Записваем полученное голосовое сообщение
+2023-11-10 16:50:01,634 - INFO - Голосовое успешно записано
+2023-11-10 16:50:03,896 - INFO - Получили распознанный текст из голосового сообщения пользователя с user_id: 940032081, сообщение: Привет, меня зовут Артём, мне 17 лет, у меня есть турник и клюшка для гольфа.
+2023-11-10 16:50:03,896 - INFO - Добавляем полученный текст в контекст пользователя (user_id: 940032081)
+2023-11-10 16:50:06,664 - INFO - Получили ответ от GPT. Ответ: Как ты оцениваешь свой уровень физической подготовки по шкале от 1 до 10? Какая продолжительность одного занятия для тебя оптимальна?
+2023-11-10 16:50:06,664 - INFO - Считаем токены для пользователя (user_id: 940032081): 940032081, итого prompt_1_input = 504, prompt_1_output = 60
+2023-11-10 16:50:06,664 - INFO - Переходим к уточняющим вопросам, если они нужны
+2023-11-10 16:50:31,792 - INFO - Ответ пользователя (check_form): 7, 30 минут
+2023-11-10 16:50:31,794 - INFO - Добавляем ответ пользователя в контекст
+2023-11-10 16:50:34,000 - INFO - Ответ от GPT получен. Ответ: Есть ли у тебя какие-либо физические ограничения? Какие упражнения ты бы хотел включить в свою тренировку?
+2023-11-10 16:50:34,000 - INFO - Считаем токены для пользователя (user_id: 940032081): 940032081, итого prompt_1_input = 1082, prompt_1_output = 112
+2023-11-10 16:50:34,001 - INFO - Проверяем, есть ли слово тригер(анкета) в ответе от GPT
+2023-11-10 16:50:34,001 - INFO - Слово тригер НЕ в ответе от GPT, продолжаем задавать вопросы пользователю
+2023-11-10 16:50:45,365 - INFO - Ответ пользователя (check_form): Нету, нет
+2023-11-10 16:50:45,366 - INFO - Добавляем ответ пользователя в контекст
+2023-11-10 16:50:47,781 - INFO - Ответ от GPT получен. Ответ: Есть ли у тебя какие-либо физические ограничения? Какие упражнения ты бы хотел включить в свою программу тренировок?
+2023-11-10 16:50:47,781 - INFO - Считаем токены для пользователя (user_id: 940032081): 940032081, итого prompt_1_input = 1669, prompt_1_output = 166
+2023-11-10 16:50:47,781 - INFO - Проверяем, есть ли слово тригер(анкета) в ответе от GPT
+2023-11-10 16:50:47,782 - INFO - Слово тригер НЕ в ответе от GPT, продолжаем задавать вопросы пользователю
+2023-11-10 16:53:08,428 - ERROR - Infinity polling: polling exited
+2023-11-10 16:53:08,428 - ERROR - Break infinity polling
+2023-11-10 16:55:13,901 - INFO - У бота нет настроенных команд, устанавливаем их
+2023-11-10 16:55:59,016 - INFO - Новый пользователь с user_id: 940032081, добавляем его в базу данных и начинаем диалог
+2023-11-10 16:55:59,370 - INFO - Для пользователя user_id: 940032081 нет контекста. Создаем контекст и счетчик токенов
+2023-11-10 16:55:59,370 - INFO - Задаем system на промпт 1
+2023-11-10 16:56:12,223 - INFO - Пользователь отправил голосовое сообщение. Вызываем whisper и конвертируем в текст
+2023-11-10 16:56:12,862 - INFO - Получили голосовое сообщение от пользователя (user_id: 940032081),  file_info: {'file_id': 'AwACAgIAAxkBAAITB2VONnx8k2Ce_aHOcSJ-zqVNHHWnAALyOAACj6dwSjOYwpoUuT6YMwQ', 'file_unique_id': 'AgAD8jgAAo-ncEo', 'file_size': 27426, 'file_path': 'voice/file_142.oga'}, передаем полученный файл в whisper
+2023-11-10 16:56:12,863 - INFO - Записваем полученное голосовое сообщение
+2023-11-10 16:56:12,864 - INFO - Голосовое успешно записано
+2023-11-10 16:56:14,116 - INFO - Получили распознанный текст из голосового сообщения пользователя с user_id: 940032081, сообщение: Привет, меня зовут Артём, мне 17 лет, у меня есть турник и клюшка для гольфа.
+2023-11-10 16:56:14,116 - INFO - Добавляем полученный текст в контекст пользователя (user_id: 940032081)
+2023-11-10 16:56:16,530 - INFO - Получили ответ от GPT. Ответ: Как ты оцениваешь свой уровень физической подготовки по шкале от 1 до 10? Какая продолжительность одного занятия для тебя оптимальна?
+2023-11-10 16:56:16,530 - INFO - Считаем токены для пользователя (user_id: 940032081): 940032081, итого prompt_1_input = 504, prompt_1_output = 60
+2023-11-10 16:56:16,530 - INFO - Переходим к уточняющим вопросам, если они нужны
+2023-11-10 16:56:24,205 - INFO - Ответ пользователя (check_form): 7, 30 минут
+2023-11-10 16:56:24,206 - INFO - Добавляем ответ пользователя в контекст
+2023-11-10 16:56:26,355 - INFO - Ответ от GPT получен. Ответ: Есть ли у тебя физические ограничения? Какие упражнения ты хотел бы включить в свою тренировку?
+2023-11-10 16:56:26,355 - INFO - Считаем токены для пользователя (user_id: 940032081): 940032081, итого prompt_1_input = 1082, prompt_1_output = 106
+2023-11-10 16:56:26,356 - INFO - Проверяем, есть ли слово тригер(анкета) в ответе от GPT
+2023-11-10 16:56:26,356 - INFO - Слово тригер НЕ в ответе от GPT, продолжаем задавать вопросы пользователю
+2023-11-10 16:57:33,018 - INFO - Ответ пользователя (check_form): Нет ограничений, нет таких
+2023-11-10 16:57:33,021 - INFO - Добавляем ответ пользователя в контекст
+2023-11-10 16:57:36,397 - INFO - Ответ от GPT получен. Ответ: Есть ли у тебя какие-то пожелания по упражнениям, которые ты хотел бы включить в свою программу тренировок?
+2023-11-10 16:57:36,398 - INFO - Считаем токены для пользователя (user_id: 940032081): 940032081, итого prompt_1_input = 1676, prompt_1_output = 152
+2023-11-10 16:57:36,398 - INFO - Проверяем, есть ли слово тригер(анкета) в ответе от GPT
+2023-11-10 16:57:36,398 - INFO - Слово тригер НЕ в ответе от GPT, продолжаем задавать вопросы пользователю
+2023-11-10 16:57:50,132 - INFO - Ответ пользователя (check_form): Нет таких упражнений
+2023-11-10 16:57:50,133 - INFO - Добавляем ответ пользователя в контекст
+2023-11-10 16:57:59,743 - INFO - Ответ от GPT получен. Ответ: Твоя анкета:
+- Имя: Артём
+- Пол: мужской
+- Возраст: 17 лет
+- Уровень физической подготовки: 7
+- Продолжительность занятия: 30 минут
+- Физические ограничения: отсутствуют
+- Наличие спортивного инвентаря: турник, клюшка для гольфа
+- Пожелания по упражнениям: нет специфических пожеланий
+
+Всё ли верно? Если что-то не так, напиши, пожалуйста, что нужно исправить.
+2023-11-10 16:57:59,743 - INFO - Считаем токены для пользователя (user_id: 940032081): 940032081, итого prompt_1_input = 2284, prompt_1_output = 335
+2023-11-10 16:57:59,743 - INFO - Проверяем, есть ли слово тригер(анкета) в ответе от GPT
+2023-11-10 16:57:59,744 - INFO - Слово тригре в ответе от GPT, выдаем клаваиатуру, если ответ пользователя положительный, переходим к промпту 2
+2023-11-10 16:58:18,220 - INFO - Переходим к финальной проверке анкеты пользователя. Ответ пользователя на форму: Да
+2023-11-10 16:58:18,220 - INFO - Пользователь (user_id: 940032081) подтвердил корректность анкеты, начианем составлять для него программу
+2023-11-10 16:58:18,396 - INFO - Перед составлением программы, получаем заполненую json форму пользователя без лишнего текста, для того, чтобы передать ее в промпт 2
+2023-11-10 16:58:21,808 - INFO - json form {'profile': {'name': 'Артём', 'sex': 'мужской', 'age': 17, 'level': 7, 'duration': '30 минут', 'issues': 'нет ограничений', 'equipment': 'турник, клюшка для гольфа', 'wishes': 'нет таких упражнений'}}
+2023-11-10 16:58:21,811 - INFO - Получили форму пользователя (user_id: 940032081), форма: {
+  "profile": {
+    "name": "Артём",
+    "sex": "мужской",
+    "age": 17,
+    "level": 7,
+    "duration": "30 минут",
+    "issues": "нет ограничений",
+    "equipment": "турник, клюшка для гольфа",
+    "wishes": "нет таких упражнений"
+  }
+}, передаем ее во 2 промпт
+2023-11-10 16:58:21,811 - INFO - Считаем токены для пользователя (user_id: 940032081): 940032081, итого prompt_1_input = 2959, prompt_1_output = 438
+2023-11-10 16:58:21,811 - INFO - Создаем программу на основе полученной формы (анкеты), ждем ответ от GPT
+2023-11-10 16:58:39,067 - INFO - Ответ от GPT получен, программа готова: Твоя программа тренировки выглядит следующим образом:
+
+**Разминка (5-10 минут):**
+1. Приседания без веса – 2 подхода по 15 повторений.
+2. Выпады на месте – 2 подхода по 10 повторений на каждую ногу.
+3. Отжимания от пола – 2 подхода по 12 повторений.
+4. Подтягивания на турнике (если это возможно) – 1 подход на максимальное количество раз (не более 10).
+
+**Основная часть (15-20 минут):**
+1. Подтягивания на турнике – 3 подхода по 8 повторений.
+2. Отжимания от пола с узкой постановкой рук – 3 подхода по 10 повторений.
+3. Приседания с клюшкой для гольфа за головой (для дополнительного баланса) – 3 подхода по 15 повторений.
+4. Подъемы коленей в висе на турнике – 3 подхода по 12 повторений.
+
+**Заминка (5 минут):**
+1. Растяжка грудных мышц – 2 подхода по 30 секунд.
+2. Растяжка бицепсов с помощью клюшки для гольфа – 2 подхода по 30 секунд на каждую руку.
+3. Поза "кошка-корова" для растяжки спины – 2 подхода по 30 секунд.
+4. Растяжка квадрицепсов стоя, захватив стопу рукой – 2 подхода по 30 секунд на каждую ногу.
+
+Подходит ли тебе эта программа или есть что-то, что ты хотел бы изменить?
+2023-11-10 16:58:39,068 - INFO - Считаем токены для пользователя (user_id: 940032081): 940032081, итого prompt_2_input = 572, prompt_2_output = 509
+2023-11-10 16:58:43,707 - INFO - from check_program Да
+2023-11-10 16:58:43,906 - INFO - Сохраняем программу для пользователя 940032081
+2023-11-10 16:58:51,674 - INFO - json prog: {
+  "training": {
+    "Разминка": [
+      "Приседания без веса - 3 подхода по 15 повторений",
+      "Бег на месте - 3 минуты",
+      "Прыжки на месте - 3 подхода по 30 секунд",
+      "Размахивание руками - 3 подхода по 20 раз каждой рукой"
+    ],
+    "Основная часть": [
+      "Отжимания - 5 подходов по 20 повторений",
+      "Подтягивания (если есть турник) - 4 подхода по 12 повторений",
+      "Планка - 4 подхода по 1 минуте",
+      "Берпи - 4 подхода по 15 повторений"
+    ],
+    "Заминка": [
+      "Растяжка грудных мышц - 30 секунд на каждую сторону",
+      "Растяжка бицепсов и предплечий - 30 секунд на каждую руку",
+      "Растяжка квадрицепсов - 30 секунд на каждую ногу",
+      "Поза ребенка - 1 минута"
+    ]
+  }
+}
+2023-11-10 16:59:29,139 - INFO - {
+  "schedule": [
+    {
+      "dayOfWeek": "Понедельник",
+      "time": "15:34"
+    },
+    {
+      "dayOfWeek": "Воскресенье",
+      "time": "14:30"
+    }
+  ]
+}
+2023-11-10 16:59:41,772 - INFO - Получаем упраженения из бд для пользователя 940032081
+2023-11-10 16:59:41,772 - INFO - Получили упражнения пользователя, из количество - 3, упражнения - [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 16:59:45,113 - INFO - Я выполнил упражнение
+2023-11-10 16:59:46,650 - INFO - Пропустить отдых, 1, 0, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 16:59:47,878 - INFO - Я выполнил упражнение
+2023-11-10 16:59:49,414 - INFO - Пропустить отдых, 2, 0, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 16:59:52,185 - INFO - Я выполнил упражнение
+2023-11-10 16:59:53,828 - INFO - Пропустить отдых, 3, 0, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 16:59:59,245 - INFO - Я выполнил упражнение
+2023-11-10 17:00:01,456 - INFO - Пропустить отдых, 0, 1, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 17:00:18,630 - INFO - Я выполнил упражнение
+2023-11-10 17:00:22,899 - INFO - Пропустить отдых, 1, 1, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 17:00:35,165 - INFO - Я выполнил упражнение
+2023-11-10 17:00:38,257 - INFO - Пропустить отдых, 2, 1, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 17:00:40,721 - INFO - Я выполнил упражнение
+2023-11-10 17:00:43,480 - INFO - Пропустить отдых, 3, 1, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 17:00:45,630 - INFO - Я выполнил упражнение
+2023-11-10 17:00:48,089 - INFO - Пропустить отдых, 0, 2, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 17:00:51,161 - INFO - Я выполнил упражнение
+2023-11-10 17:00:52,697 - INFO - Пропустить отдых, 1, 2, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 17:00:54,720 - INFO - Я выполнил упражнение
+2023-11-10 17:00:55,783 - INFO - Пропустить отдых, 2, 2, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 17:00:56,843 - INFO - Я выполнил упражнение
+2023-11-10 17:00:58,108 - INFO - Пропустить отдых, 3, 2, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 17:01:00,683 - INFO - Я выполнил упражнение
+2023-11-10 17:01:02,221 - INFO - Пропустить отдых, 0, 3, [['Приседания без веса - 3 подхода по 15 повторений', ' Бег на месте - 3 минуты', ' Прыжки на месте - 3 подхода по 30 секунд', ' Размахивание руками - 3 подхода по 20 раз каждой рукой'], ['Отжимания - 5 подходов по 20 повторений', ' Подтягивания (если есть турник) - 4 подхода по 12 повторений', ' Планка - 4 подхода по 1 минуте', ' Берпи - 4 подхода по 15 повторений'], ['Растяжка грудных мышц - 30 секунд на каждую сторону', ' Растяжка бицепсов и предплечий - 30 секунд на каждую руку', ' Растяжка квадрицепсов - 30 секунд на каждую ногу', ' Поза ребенка - 1 минута']]
+2023-11-10 17:04:19,733 - INFO - {
+  "schedule": [
+    {
+      "dayOfWeek": "Суббота",
+      "time": "14:30"
+    },
+    {
+      "dayOfWeek": "Воскресенье",
+      "time": "18:00"
+    }
+  ]
+}
+2023-11-10 17:13:51,674 - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+2023-11-10 17:13:51,675 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 537, in _make_request
+    response = conn.getresponse()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connection.py", line 461, in getresponse
+    httplib_response = super().getresponse()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 1374, in getresponse
+    response.begin()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 318, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/http/client.py", line 279, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 705, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1274, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/ssl.py", line 1130, in read
+    return self._sslobj.read(len, buffer)
+TimeoutError: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 470, in increment
+    raise reraise(type(error), error, _stacktrace)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/util/util.py", line 39, in reraise
+    raise value
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 539, in _make_request
+    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 371, in _raise_timeout
+    raise ReadTimeoutError(
+urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1073, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 108, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 649, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 623, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates, long_polling_timeout)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 321, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 156, in _make_request
+    result = _get_req_session().request(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/requests/adapters.py", line 532, in send
+    raise ReadTimeout(e, request=request)
+requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='api.telegram.org', port=443): Read timed out. (read timeout=25)
+
+2023-11-10 17:13:54,692 - ERROR - Infinity polling exception: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5575707129:AAHAdYUkY3DQnfwTTY27K4tj8gbrw18CkOU/getUpdates?offset=592224298&timeout=20 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x107663e20>: Failed to resolve 'api.telegram.org' ([Errno 8] nodename nor servname provided, or not known)"))
+2023-11-10 17:13:54,693 - ERROR - Exception traceback:
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 8] nodename nor servname provided, or not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 791, in urlopen
+    response = self._make_request(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 492, in _make_request
+    raise new_e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 468, in _make_request
+    self._validate_conn(conn)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1097, in _validate_conn
+    conn.connect()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x107663e20>: Failed to resolve 'api.telegram.org' ([Errno 8] nodename nor servname provided, or not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/requests/adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 845, in urlopen
+    retries = retries.increment(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5575707129:AAHAdYUkY3DQnfwTTY27K4tj8gbrw18CkOU/getUpdates?offset=592224298&timeout=20 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x107663e20>: Failed to resolve 'api.telegram.org' ([Errno 8] nodename nor servname provided, or not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 955, in infinity_polling
+    self.polling(non_stop=True, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1043, in polling
+    self.__threaded_polling(non_stop=non_stop, interval=interval, timeout=timeout, long_polling_timeout=long_polling_timeout,
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1118, in __threaded_polling
+    raise e
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 1073, in __threaded_polling
+    polling_thread.raise_exceptions()
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 108, in raise_exceptions
+    raise self.exception_info
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/util.py", line 90, in run
+    task(*args, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 649, in __retrieve_updates
+    updates = self.get_updates(offset=(self.last_update_id + 1),
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/__init__.py", line 623, in get_updates
+    json_updates = apihelper.get_updates(self.token, offset, limit, timeout, allowed_updates, long_polling_timeout)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 321, in get_updates
+    return _make_request(token, method_url, params=payload)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/telebot/apihelper.py", line 156, in _make_request
+    result = _get_req_session().request(
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/Users/ekondrashov/PycharmProjects/openai/venv/lib/python3.10/site-packages/requests/adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='api.telegram.org', port=443): Max retries exceeded with url: /bot5575707129:AAHAdYUkY3DQnfwTTY27K4tj8gbrw18CkOU/getUpdates?offset=592224298&timeout=20 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x107663e20>: Failed to resolve 'api.telegram.org' ([Errno 8] nodename nor servname provided, or not known)"))
+
